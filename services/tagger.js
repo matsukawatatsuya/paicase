@@ -1,7 +1,7 @@
 // キーワードマッチングによる自動タグ付け。
 // タイトル・要約・企業名などのテキストを業種/ユースケースのキーワード辞書と照合する。
 
-const { INDUSTRIES, USE_CASES, VENDORS } = require("./taxonomy");
+const { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES } = require("./taxonomy");
 
 function normalize(text) {
   return (text || "").toLowerCase();
@@ -30,11 +30,12 @@ function tagCandidate(candidate) {
     [baseText, ...(candidate.useCaseHints || [])].join(" \n "),
     USE_CASES
   );
-  // ベンダー名は導入企業名と衝突しやすい（例:「トヨタ」が顧客企業名にも登場する）ため、
-  // 本文全体ではなく収集時に確認したvendorHintsのみと照合する（精度優先）。
+  // ベンダー名・国名は導入企業名等と衝突しやすいため、本文全体ではなく
+  // 収集時に確認したvendorHints/countryHintsのみと照合する（精度優先）。
   const vendors = matchAgainst((candidate.vendorHints || []).join(" \n "), VENDORS);
+  const countries = matchAgainst((candidate.countryHints || []).join(" \n "), COUNTRIES);
 
-  return { industries, useCases, vendors };
+  return { industries, useCases, vendors, countries };
 }
 
 module.exports = { tagCandidate, matchAgainst, normalize };

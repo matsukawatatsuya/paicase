@@ -33,6 +33,16 @@ async function main() {
     res.json(sortVendorNames(vendors));
   });
 
+  // 国一覧（事例が1件以上ひも付くものだけ、件数付き）
+  app.get("/api/countries", (req, res) => {
+    const countries = db.all(`
+      SELECT c.name AS name, COUNT(DISTINCT cc.case_id) AS cnt
+      FROM case_countries cc JOIN countries c ON c.id = cc.country_id
+      GROUP BY c.name
+    `);
+    res.json(sortVendorNames(countries));
+  });
+
   // 業種×ユースケースのクロス集計
   app.get("/api/matrix", (req, res) => {
     const cellRows = db.all(`
@@ -67,9 +77,9 @@ async function main() {
     res.json({ cells, industryTotals: industryTotalMap, usecaseTotals: usecaseTotalMap });
   });
 
-  // 事例一覧（業種／ユースケース／ロボットベンダーで絞り込み可能）
+  // 事例一覧（業種／ユースケース／ロボットベンダー／国で絞り込み可能）
   app.get("/api/cases", (req, res) => {
-    const { industry, usecase, vendor } = req.query;
+    const { industry, usecase, vendor, country } = req.query;
 
     let sql = `SELECT DISTINCT c.id, c.title, c.url, c.published_date, c.source_name,
                       c.official_score, c.company, c.image_url
@@ -91,6 +101,11 @@ async function main() {
       sql += ` JOIN case_vendors cv ON cv.case_id = c.id JOIN vendors v ON v.id = cv.vendor_id`;
       conditions.push("v.name = ?");
       params.push(vendor);
+    }
+    if (country) {
+      sql += ` JOIN case_countries cc ON cc.case_id = c.id JOIN countries co ON co.id = cc.country_id`;
+      conditions.push("co.name = ?");
+      params.push(country);
     }
     if (conditions.length) sql += " WHERE " + conditions.join(" AND ");
     sql += " ORDER BY c.published_date DESC, c.id DESC";
@@ -150,7 +165,13 @@ function attachTagNames(db, c) {
       [c.id]
     )
     .map((r) => r.name);
-  return { ...c, industries, useCases, vendors };
+  const countries = db
+    .all(
+      `SELECT co.name FROM case_countries cc JOIN countries co ON co.id = cc.country_id WHERE cc.case_id = ?`,
+      [c.id]
+    )
+    .map((r) => r.name);
+  return { ...c, industries, useCases, vendors, countries };
 }
 
 main().catch((err) => {

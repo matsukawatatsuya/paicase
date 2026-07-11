@@ -1,6 +1,6 @@
 // マスタデータ（業種・ユースケース）を投入する。既存があればスキップ。
 const { getDb } = require("./init");
-const { INDUSTRIES, USE_CASES, VENDORS } = require("../services/taxonomy");
+const { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES } = require("../services/taxonomy");
 
 async function seedMaster() {
   const db = await getDb();
@@ -23,6 +23,13 @@ async function seedMaster() {
     const existing = db.get("SELECT id FROM vendors WHERE name = ?", [v.name]);
     if (!existing) {
       db.run("INSERT INTO vendors (name, sort_order) VALUES (?, ?)", [v.name, i]);
+    }
+  });
+
+  COUNTRIES.forEach((c, i) => {
+    const existing = db.get("SELECT id FROM countries WHERE name = ?", [c.name]);
+    if (!existing) {
+      db.run("INSERT INTO countries (name, sort_order) VALUES (?, ?)", [c.name, i]);
     }
   });
 

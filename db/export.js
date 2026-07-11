@@ -28,7 +28,10 @@ async function exportData() {
     const caseVendors = db
       .all(`SELECT v.name FROM case_vendors cv JOIN vendors v ON v.id = cv.vendor_id WHERE cv.case_id = ?`, [c.id])
       .map((r) => r.name);
-    return { ...c, industries: caseIndustries, useCases: caseUseCases, vendors: caseVendors };
+    const caseCountries = db
+      .all(`SELECT co.name FROM case_countries cc JOIN countries co ON co.id = cc.country_id WHERE cc.case_id = ?`, [c.id])
+      .map((r) => r.name);
+    return { ...c, industries: caseIndustries, useCases: caseUseCases, vendors: caseVendors, countries: caseCountries };
   });
 
   const data = {

@@ -4,9 +4,11 @@ const state = {
   allCases: [],
   matrix: { cells: {}, industryTotals: {}, usecaseTotals: {} },
   vendorCounts: [],
+  countryCounts: [],
   filterIndustry: null,
   filterUsecase: null,
   filterVendor: null,
+  filterCountry: null,
   cases: [],
 };
 
@@ -16,6 +18,8 @@ const els = {
   matrixTable: document.getElementById("matrix-table"),
   vendorToggle: document.getElementById("vendor-toggle"),
   vendorChips: document.getElementById("vendor-chips"),
+  countryToggle: document.getElementById("country-toggle"),
+  countryChips: document.getElementById("country-chips"),
   caseList: document.getElementById("case-list"),
   filterLabel: document.getElementById("filter-label"),
   listCount: document.getElementById("list-count"),
@@ -40,6 +44,7 @@ function setupCollapse(toggleBtn, contentEl) {
 }
 setupCollapse(els.matrixToggle, els.matrixContent);
 setupCollapse(els.vendorToggle, els.vendorChips);
+setupCollapse(els.countryToggle, els.countryChips);
 
 // 静的なdata.json（ビルド時にDBから書き出したスナップショット）を読み込み、
 // クロス集計・ベンダー件数・絞り込みはすべてブラウザ側で計算する。
@@ -88,11 +93,26 @@ function computeVendorCounts() {
   state.vendorCounts = [...alphabetic, ...other].map((name) => ({ name, cnt: counts[name] }));
 }
 
+function computeCountryCounts() {
+  const counts = {};
+  state.allCases.forEach((c) => {
+    (c.countries || []).forEach((v) => {
+      counts[v] = (counts[v] || 0) + 1;
+    });
+  });
+  const names = Object.keys(counts);
+  const isAlphabetic = (name) => /^[A-Za-z]/.test(name);
+  const alphabetic = names.filter(isAlphabetic).sort((a, b) => a.localeCompare(b, "en"));
+  const other = names.filter((n) => !isAlphabetic(n)).sort((a, b) => a.localeCompare(b, "ja"));
+  state.countryCounts = [...alphabetic, ...other].map((name) => ({ name, cnt: counts[name] }));
+}
+
 function applyCaseFilter() {
   state.cases = state.allCases.filter((c) => {
     if (state.filterIndustry && !c.industries.includes(state.filterIndustry)) return false;
     if (state.filterUsecase && !c.useCases.includes(state.filterUsecase)) return false;
     if (state.filterVendor && !(c.vendors || []).includes(state.filterVendor)) return false;
+    if (state.filterCountry && !(c.countries || []).includes(state.filterCountry)) return false;
     return true;
   });
 }
@@ -151,18 +171,18 @@ function renderMatrix() {
   els.matrixTable.addEventListener("mouseleave", clearHover);
 
   els.matrixTable.querySelectorAll("[data-clear]").forEach((el) => {
-    el.addEventListener("click", () => setFilter(null, null, null));
+    el.addEventListener("click", () => setFilter(null, null, null, null));
   });
   els.matrixTable.querySelectorAll("th.industry-th[data-industry]").forEach((el) => {
-    el.addEventListener("click", () => setFilter(el.dataset.industry, null, state.filterVendor));
+    el.addEventListener("click", () => setFilter(el.dataset.industry, null, state.filterVendor, state.filterCountry));
   });
   els.matrixTable.querySelectorAll("th[data-usecase]").forEach((el) => {
-    el.addEventListener("click", () => setFilter(null, el.dataset.usecase, state.filterVendor));
+    el.addEventListener("click", () => setFilter(null, el.dataset.usecase, state.filterVendor, state.filterCountry));
   });
   els.matrixTable.querySelectorAll("td.count-cell[data-industry][data-usecase]").forEach((el) => {
     el.addEventListener("click", () => {
       if (Number(el.textContent.trim() === "–" ? 0 : el.textContent) === 0) return;
-      setFilter(el.dataset.industry, el.dataset.usecase, state.filterVendor);
+      setFilter(el.dataset.industry, el.dataset.usecase, state.filterVendor, state.filterCountry);
     });
   });
 }
@@ -182,7 +202,27 @@ function renderVendorChips() {
   els.vendorChips.querySelectorAll(".vendor-chip").forEach((el) => {
     el.addEventListener("click", () => {
       const next = state.filterVendor === el.dataset.vendor ? null : el.dataset.vendor;
-      setFilter(state.filterIndustry, state.filterUsecase, next);
+      setFilter(state.filterIndustry, state.filterUsecase, next, state.filterCountry);
+    });
+  });
+}
+
+function renderCountryChips() {
+  if (state.countryCounts.length === 0) {
+    els.countryChips.innerHTML = `<p class="empty-note">まだ国情報を持つ事例がありません。</p>`;
+    return;
+  }
+  els.countryChips.innerHTML = state.countryCounts
+    .map((v) => {
+      const active = state.filterCountry === v.name ? "active" : "";
+      return `<button class="vendor-chip ${active}" data-country="${escapeAttr(v.name)}">${escapeHtml(v.name)} <span class="vendor-chip-count">${v.cnt}</span></button>`;
+    })
+    .join("");
+
+  els.countryChips.querySelectorAll(".vendor-chip").forEach((el) => {
+    el.addEventListener("click", () => {
+      const next = state.filterCountry === el.dataset.country ? null : el.dataset.country;
+      setFilter(state.filterIndustry, state.filterUsecase, state.filterVendor, next);
     });
   });
 }
@@ -192,6 +232,7 @@ function renderFilterLabel() {
   if (state.filterIndustry) parts.push(`業種: ${state.filterIndustry}`);
   if (state.filterUsecase) parts.push(`ユースケース: ${state.filterUsecase}`);
   if (state.filterVendor) parts.push(`ベンダー: ${state.filterVendor}`);
+  if (state.filterCountry) parts.push(`国: ${state.filterCountry}`);
   els.filterLabel.textContent = parts.join(" ／ ");
   els.clearFilterBtn.hidden = parts.length === 0;
 }
@@ -210,6 +251,7 @@ function renderCaseList() {
         ...c.industries.map((t) => `<span class="tag-chip">${escapeHtml(t)}</span>`),
         ...c.useCases.map((t) => `<span class="tag-chip usecase">${escapeHtml(t)}</span>`),
         ...(c.vendors || []).map((t) => `<span class="tag-chip vendor">${escapeHtml(t)}</span>`),
+        ...(c.countries || []).map((t) => `<span class="tag-chip country">${escapeHtml(t)}</span>`),
       ].join("");
       return `
         <article class="case-card" data-id="${c.id}" tabindex="0" role="button" aria-label="${escapeAttr(c.title)}">
@@ -238,12 +280,14 @@ function renderCaseList() {
   });
 }
 
-function setFilter(industry, usecase, vendor) {
+function setFilter(industry, usecase, vendor, country) {
   state.filterIndustry = industry;
   state.filterUsecase = usecase;
   state.filterVendor = vendor || null;
+  state.filterCountry = country || null;
   renderMatrix();
   renderVendorChips();
+  renderCountryChips();
   renderFilterLabel();
   applyCaseFilter();
   renderCaseList();
@@ -252,9 +296,10 @@ function setFilter(industry, usecase, vendor) {
 // モーダル内のタグをクリックした時: モーダルを閉じ、そのタグ1件だけの条件で絞り込む
 function filterByTagOnly(type, value) {
   closeModal();
-  if (type === "industry") setFilter(value, null, null);
-  else if (type === "usecase") setFilter(null, value, null);
-  else if (type === "vendor") setFilter(null, null, value);
+  if (type === "industry") setFilter(value, null, null, null);
+  else if (type === "usecase") setFilter(null, value, null, null);
+  else if (type === "vendor") setFilter(null, null, value, null);
+  else if (type === "country") setFilter(null, null, null, value);
 }
 
 function openModal(id) {
@@ -267,6 +312,7 @@ function openModal(id) {
     ...c.industries.map((t) => `<button type="button" class="tag-chip" data-tag-type="industry" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
     ...c.useCases.map((t) => `<button type="button" class="tag-chip usecase" data-tag-type="usecase" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
     ...(c.vendors || []).map((t) => `<button type="button" class="tag-chip vendor" data-tag-type="vendor" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
+    ...(c.countries || []).map((t) => `<button type="button" class="tag-chip country" data-tag-type="country" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
   ].join("");
   els.modalTags.querySelectorAll("[data-tag-type]").forEach((el) => {
     el.addEventListener("click", () => filterByTagOnly(el.dataset.tagType, el.dataset.tagValue));
@@ -293,7 +339,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && els.overlay.classList.contains("open")) closeModal();
 });
 
-els.clearFilterBtn.addEventListener("click", () => setFilter(null, null, null));
+els.clearFilterBtn.addEventListener("click", () => setFilter(null, null, null, null));
 
 function escapeHtml(str) {
   return (str || "").replace(/[&<>"']/g, (c) => ({
@@ -308,8 +354,10 @@ async function init() {
   await loadData();
   computeMatrix();
   computeVendorCounts();
+  computeCountryCounts();
   renderMatrix();
   renderVendorChips();
+  renderCountryChips();
   renderFilterLabel();
   applyCaseFilter();
   renderCaseList();

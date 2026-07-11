@@ -18,6 +18,12 @@ CREATE TABLE IF NOT EXISTS vendors (
   sort_order INTEGER NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS countries (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT UNIQUE NOT NULL,
+  sort_order INTEGER NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS cases (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT NOT NULL,
@@ -50,9 +56,17 @@ CREATE TABLE IF NOT EXISTS case_vendors (
   PRIMARY KEY (case_id, vendor_id)
 );
 
+CREATE TABLE IF NOT EXISTS case_countries (
+  case_id INTEGER NOT NULL REFERENCES cases(id) ON DELETE CASCADE,
+  country_id INTEGER NOT NULL REFERENCES countries(id) ON DELETE CASCADE,
+  PRIMARY KEY (case_id, country_id)
+);
+
 CREATE INDEX IF NOT EXISTS idx_case_industries_case ON case_industries(case_id);
 CREATE INDEX IF NOT EXISTS idx_case_industries_industry ON case_industries(industry_id);
 CREATE INDEX IF NOT EXISTS idx_case_usecases_case ON case_usecases(case_id);
 CREATE INDEX IF NOT EXISTS idx_case_usecases_usecase ON case_usecases(usecase_id);
 CREATE INDEX IF NOT EXISTS idx_case_vendors_case ON case_vendors(case_id);
 CREATE INDEX IF NOT EXISTS idx_case_vendors_vendor ON case_vendors(vendor_id);
+CREATE INDEX IF NOT EXISTS idx_case_countries_case ON case_countries(case_id);
+CREATE INDEX IF NOT EXISTS idx_case_countries_country ON case_countries(country_id);

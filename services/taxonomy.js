@@ -109,4 +109,31 @@ const VENDORS = [
   { name: "Oversonic Robotics", keywords: ["Oversonic Robotics", "RoBee"] },
 ];
 
-module.exports = { INDUSTRIES, USE_CASES, VENDORS };
+// 事例が実際に導入・運用されている国。会社の国籍ではなく、記事内で確認できた導入先の国。
+// vendorHints同様、本文全体からの自動検出はせずcountryHintsとのみ照合する（company表記との衝突を避けるため）。
+const COUNTRIES = [
+  { name: "日本", keywords: ["日本"] },
+  { name: "アメリカ", keywords: ["アメリカ"] },
+  { name: "中国", keywords: ["中国"] },
+  { name: "韓国", keywords: ["韓国"] },
+  { name: "ドイツ", keywords: ["ドイツ"] },
+  { name: "イギリス", keywords: ["イギリス"] },
+  { name: "カナダ", keywords: ["カナダ"] },
+  { name: "スイス", keywords: ["スイス"] },
+  { name: "デンマーク", keywords: ["デンマーク"] },
+  { name: "オランダ", keywords: ["オランダ"] },
+  { name: "ハンガリー", keywords: ["ハンガリー"] },
+  { name: "ポルトガル", keywords: ["ポルトガル"] },
+  { name: "台湾", keywords: ["台湾"] },
+  { name: "マルタ", keywords: ["マルタ"] },
+  { name: "アルゼンチン", keywords: ["アルゼンチン"] },
+  { name: "チリ", keywords: ["チリ"] },
+  { name: "メキシコ", keywords: ["メキシコ"] },
+  { name: "オーストラリア", keywords: ["オーストラリア"] },
+  { name: "UAE", keywords: ["UAE"] },
+  { name: "サウジアラビア", keywords: ["サウジアラビア"] },
+  { name: "ベトナム", keywords: ["ベトナム"] },
+  { name: "エジプト", keywords: ["エジプト"] },
+];
+
+module.exports = { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES };

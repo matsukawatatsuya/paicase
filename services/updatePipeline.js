@@ -15,6 +15,7 @@ const TAG_TABLES = {
   industries: { masterTable: "industries", junctionTable: "case_industries", refCol: "industry_id" },
   useCases: { masterTable: "use_cases", junctionTable: "case_usecases", refCol: "usecase_id" },
   vendors: { masterTable: "vendors", junctionTable: "case_vendors", refCol: "vendor_id" },
+  countries: { masterTable: "countries", junctionTable: "case_countries", refCol: "country_id" },
 };
 
 function attachTags(db, caseId, tagNames, tagType) {
@@ -32,6 +33,7 @@ function attachAllTags(db, caseId, tags) {
   attachTags(db, caseId, tags.industries, "industries");
   attachTags(db, caseId, tags.useCases, "useCases");
   attachTags(db, caseId, tags.vendors, "vendors");
+  attachTags(db, caseId, tags.countries, "countries");
 }
 
 function insertCase(db, candidate) {
@@ -84,6 +86,7 @@ function replaceCase(db, existingId, candidate) {
   db.run("DELETE FROM case_industries WHERE case_id = ?", [existingId]);
   db.run("DELETE FROM case_usecases WHERE case_id = ?", [existingId]);
   db.run("DELETE FROM case_vendors WHERE case_id = ?", [existingId]);
+  db.run("DELETE FROM case_countries WHERE case_id = ?", [existingId]);
   attachAllTags(db, existingId, tagCandidate(candidate));
 }
 
