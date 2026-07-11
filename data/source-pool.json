@@ -2241,5 +2241,90 @@
       "FieldAI"
     ],
     "countryHints": []
+  },
+  {
+    "title": "東京科学大学、双腕ロボット「まほろ」でバイオ研究の自動化拠点を新設",
+    "url": "https://xtech.nikkei.com/atcl/nxt/column/18/00001/11688/",
+    "publishedDate": "2026-04-28",
+    "sourceName": "日経クロステック",
+    "company": "東京科学大学",
+    "summary": "東京科学大学（湯島キャンパス）は、ロボティック・バイオロジー・インスティテュート（RBI）と共同で「ロボット未来創造センター」を新設した。双腕ロボット「まほろ」を含む10台のロボットがマイクロピペットを操作し、PCR検査や細胞培養などのバイオ研究業務を自律的に行う。2040年までにバイオ研究の完全自動化・自律化を実現することを目標に、将来的には2000台規模のロボット稼働を構想している。",
+    "imageUrl": "https://cdn-xtech.nikkei.com/atcl/nxt/column/18/00001/11688/01.jpg",
+    "industryHints": [
+      "医療・介護"
+    ],
+    "useCaseHints": [
+      "研究・実験"
+    ],
+    "vendorHints": [
+      "Robotic Biology Institute"
+    ],
+    "countryHints": [
+      "日本"
+    ]
+  },
+  {
+    "title": "Renault、ヒューマノイド「Calvin」350台をフランスの工場に配備へ、タイヤ搬送で先行稼働",
+    "url": "https://www.humanoidsdaily.com/news/renault-to-deploy-350-wandercraft-calvin-humanoids-in-industrial-speed-run",
+    "publishedDate": "2026-03-12",
+    "sourceName": "Humanoids Daily",
+    "company": "Renault Group",
+    "summary": "フランスの自動車大手Renault Groupは、Wandercraft製ヒューマノイドロボット「Calvin」を18か月以内に350台、製造施設に配置する計画を発表した。フランス・ドゥエ工場では既に実運用が始まっており、高負荷ペイロード能力を活かしてタイヤなど重い部材を扱いながら自律走行するタイヤ搬送作業を担っている。生産コストを20%削減する「Excellence-ready」戦略の一環。",
+    "imageUrl": "https://7jopx6ax2qhwmgqx.public.blob.vercel-storage.com/images/wandercraft-calvin-renault.webp",
+    "industryHints": [
+      "自動車",
+      "製造業"
+    ],
+    "useCaseHints": [
+      "ピッキング・搬送"
+    ],
+    "vendorHints": [
+      "Wandercraft"
+    ],
+    "countryHints": [
+      "フランス"
+    ]
+  },
+  {
+    "title": "UBTech、中国初の5G対応風力発電スマート工場「SANY RE」にヒューマノイド「Walker S2」を投入",
+    "url": "https://www.youtube.com/watch?v=xXiTvnsi4EI",
+    "publishedDate": "2026-02-12",
+    "sourceName": "UBTECH Robotics（公式YouTubeチャンネル）",
+    "company": "SANY Renewable Energy（SANY RE）",
+    "summary": "UBTech Roboticsのヒューマノイドロボット「Walker S2」が、中国初の5G対応風力発電スマート工場であるSANY Renewable Energy（SANY RE）の生産現場で稼働している様子が公開された。同工場の自動化推進の一環として、ヒューマノイドロボットによる作業実演が行われている。",
+    "imageUrl": "https://img.youtube.com/vi/xXiTvnsi4EI/maxresdefault.jpg",
+    "industryHints": [
+      "製造業",
+      "エネルギー"
+    ],
+    "useCaseHints": [],
+    "vendorHints": [
+      "UBTech"
+    ],
+    "countryHints": [
+      "中国"
+    ]
+  },
+  {
+    "title": "三菱電機、中国ロボット企業Lumos Roboticsへ出資、人型ロボットで製造現場の無人化を検証",
+    "url": "https://novaist.jp/articles/mitsubishi-lumos-robotics/",
+    "publishedDate": "2026-03-23",
+    "sourceName": "NOVAIST",
+    "company": "三菱電機",
+    "summary": "三菱電機が中国のヒューマノイドロボット企業Lumos Robotics Technologyへ出資し、同社の人型ロボットと三菱電機のFA（ファクトリーオートメーション）技術を組み合わせる取り組みを開始した。搬送、外観検査、設備補助など人手に頼りがちな工程を一体で自動化することを目指し、中国の製造拠点では現場投入を前提とした実証実験を進めている。",
+    "imageUrl": "https://s.novaist.jp/media/2026/03/23160323/22243-20260323-070321-830-1200x630.jpg",
+    "industryHints": [
+      "製造業"
+    ],
+    "useCaseHints": [
+      "ピッキング・搬送",
+      "検品・品質管理"
+    ],
+    "vendorHints": [
+      "Lumos Robotics"
+    ],
+    "countryHints": [
+      "中国"
+    ]
   }
 ]

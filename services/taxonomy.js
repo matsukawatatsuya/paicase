@@ -115,6 +115,9 @@ const VENDORS = [
   { name: "Medra", keywords: ["Medra"] },
   { name: "Mimic Robotics", keywords: ["Mimic Robotics", "mimic-video"] },
   { name: "DEEP Robotics", keywords: ["DEEP Robotics"] },
+  { name: "Robotic Biology Institute", keywords: ["Robotic Biology Institute", "まほろ"] },
+  { name: "Wandercraft", keywords: ["Wandercraft", "Calvin"] },
+  { name: "Lumos Robotics", keywords: ["Lumos Robotics"] },
 ];
 
 // 事例が実際に導入・運用されている国。会社の国籍ではなく、記事内で確認できた導入先の国。
@@ -143,6 +146,7 @@ const COUNTRIES = [
   { name: "ベトナム", keywords: ["ベトナム"] },
   { name: "エジプト", keywords: ["エジプト"] },
   { name: "シンガポール", keywords: ["シンガポール"] },
+  { name: "フランス", keywords: ["フランス"] },
 ];
 
 module.exports = { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES };
