@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>フィジカルAI事例トラッカー</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">◉</span>
+        <div>
+          <h1>フィジカルAI事例集</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="panel-header">
+        <button class="collapse-toggle" id="matrix-toggle" aria-expanded="false" aria-controls="matrix-content">
+          <span class="collapse-arrow">▼</span>
+          <h2>業種 × ユースケース</h2>
+        </button>
+        <button id="clear-filter-btn" class="btn btn-ghost" hidden>絞り込み解除</button>
+      </div>
+      <div class="matrix-scroll collapsible-content" id="matrix-content" hidden>
+        <table id="matrix-table" class="matrix-table"></table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <button class="collapse-toggle" id="vendor-toggle" aria-expanded="false" aria-controls="vendor-chips">
+          <span class="collapse-arrow">▼</span>
+          <h2>ベンダー</h2>
+        </button>
+      </div>
+      <div id="vendor-chips" class="vendor-chips collapsible-content" hidden></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>事例一覧</h2>
+        <span id="filter-label" class="filter-label"></span>
+        <span id="list-count" class="list-count"></span>
+      </div>
+      <div id="case-list" class="case-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>掲載事例の著作権・情報の正確性は各配信元に帰属します。詳細は各ソースサイトをご確認ください。</p>
+  </footer>
+
+  <!-- 詳細モーダル -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="閉じる">&times;</button>
+      <div class="modal-image-wrap" id="modal-image-wrap"></div>
+      <div class="modal-body">
+        <div class="modal-tags" id="modal-tags"></div>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <div class="modal-meta">
+          <span id="modal-source"></span>
+          <span class="dot">・</span>
+          <span id="modal-date"></span>
+        </div>
+        <div class="modal-section">
+          <h3>サマリー</h3>
+          <p id="modal-summary"></p>
+        </div>
+        <button id="modal-detail-btn" class="btn btn-primary">詳細表示（ソースを別タブで開く）↗</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
