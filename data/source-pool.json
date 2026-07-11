@@ -2326,5 +2326,49 @@
     "countryHints": [
       "中国"
     ]
+  },
+  {
+    "title": "UBTechのヒューマノイド「Walker S1」、Zeekrの5G対応スマート工場で複数台協働",
+    "url": "https://ledge.ai/articles/ubtech_walker_s1_zeekr_factory_ai",
+    "publishedDate": "2025-03-14",
+    "forceInclude": true,
+    "sourceName": "Ledge.ai",
+    "company": "Zeekr",
+    "summary": "EVメーカーZeekrの5G対応スマート工場で、UBTech Roboticsが開発したヒューマノイドロボット「Walker S1」が作業員と共に稼働している。複数台のWalker S1が協力し、工場内の物資搬送（最大15kgのコンテナを連続搬送）と品質検査（全身のカメラとディープラーニングでエンブレムやライトなどをミリメートル単位で検査、精度99%以上）を担う。同社のAIフレームワーク「BrainNet」により複数ロボットがリアルタイムでデータを共有し、「世界初のマルチヒューマノイド・ロボットの協働」と位置づけられている。",
+    "imageUrl": "https://storage.googleapis.com/ledge-ai-prd-public-bucket/media/UBTECH_Swarm_Intelligence_Walker_S1_f77f7e1b74/UBTECH_Swarm_Intelligence_Walker_S1_f77f7e1b74.jpg",
+    "industryHints": [
+      "自動車",
+      "製造業"
+    ],
+    "useCaseHints": [
+      "ピッキング・搬送",
+      "検品・品質管理"
+    ],
+    "vendorHints": [
+      "UBTech"
+    ],
+    "countryHints": [
+      "中国"
+    ]
+  },
+  {
+    "title": "Intel Foundry、Boston Dynamics製ロボット犬「Chip」で半導体工場の点検を自動化",
+    "url": "https://community.intel.com/t5/Blogs/Intel-Foundry/Systems-Foundry-for-the-AI-Era/From-Reactive-to-Prescriptive-Intel-Foundry-s-AI-Powered-Robot/post/1729905",
+    "publishedDate": "2025-12-15",
+    "forceInclude": true,
+    "sourceName": "Intel Foundry（公式コミュニティブログ）",
+    "company": "Intel Foundry",
+    "summary": "Intel Foundryは、Boston Dynamics製ロボット犬をIntel Foundry独自にカスタマイズした自律点検ロボット「Chip」を、世界各地の半導体製造施設で24時間体制で巡回させている。各種センサーを用いて設備の視覚・熱・音響の16種類の点検を実施し、異常発熱などの兆候を検知する。技術者が事後対応から予知保全（プリスクリプティブ・メンテナンス）へ移行することを目指す「Industry 5.0」戦略の一環として位置づけられている。",
+    "imageUrl": "https://community.intel.com/t5/image/serverpage/image-id/70348i95EA1BAB09C2419D?v=v2&whitelist-exif-data=Orientation%2CResolution%2COriginalDefaultFinalSize%2CCopyright",
+    "industryHints": [
+      "製造業"
+    ],
+    "useCaseHints": [
+      "点検・保守"
+    ],
+    "vendorHints": [
+      "Boston Dynamics"
+    ],
+    "countryHints": []
   }
 ]

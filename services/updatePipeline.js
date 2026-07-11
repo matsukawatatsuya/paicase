@@ -92,7 +92,11 @@ function replaceCase(db, existingId, candidate) {
 
 async function runUpdate(db) {
   const candidates = await fetchCandidates();
-  const inWindow = candidates.filter((c) => !c.publishedDate || c.publishedDate >= CUTOFF_DATE);
+  // forceInclude: true の候補（ユーザーが個別にURLを指定して追加を依頼した事例）は
+  // 公開日が対象期間（2026年1月以降）より前でも対象期間フィルタを素通りさせる。
+  const inWindow = candidates.filter(
+    (c) => c.forceInclude || !c.publishedDate || c.publishedDate >= CUTOFF_DATE
+  );
 
   const existing = loadExisting(db);
   const addedTitles = [];
