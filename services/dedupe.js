@@ -103,7 +103,10 @@ function titleSimilarity(a, b) {
 function normalizeUrl(url) {
   try {
     const u = new URL(url);
-    return (u.hostname.replace(/^www\./, "") + u.pathname).replace(/\/$/, "").toLowerCase();
+    // クエリ文字列も含める。YouTube(?v=...)やX/Twitter等、パスが共通で
+    // クエリ文字列だけが実質的なコンテンツIDになっているサイトが多いため、
+    // クエリを無視すると別記事同士を誤って同一URLと判定してしまう。
+    return (u.hostname.replace(/^www\./, "") + u.pathname + u.search).replace(/\/$/, "").toLowerCase();
   } catch {
     return (url || "").toLowerCase();
   }

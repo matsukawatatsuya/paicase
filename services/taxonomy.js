@@ -34,7 +34,8 @@ const USE_CASES = [
   { name: "在庫管理", keywords: ["在庫管理", "inventory management", "棚卸", "stock management"] },
   { name: "遠隔操作・監視", keywords: ["遠隔操作", "遠隔監視", "teleoperation", "remote monitoring", "telepresence"] },
   { name: "教育支援", keywords: ["教育支援", "教師アシスタント", "teaching assistant", "tutoring", "個別指導"] },
-  { name: "手術支援", keywords: ["手術支援", "surgical", "surgery", "da Vinci", "ダ・ヴィンチ", "マイクロサージェリー"] }
+  { name: "手術支援", keywords: ["手術支援", "surgical", "surgery", "da Vinci", "ダ・ヴィンチ", "マイクロサージェリー"] },
+  { name: "研究・実験", keywords: ["研究・実験", "研究", "実験室", "laboratory", "research lab"] }
 ];
 
 // ロボットベンダー（ロボット本体・自律走行システムの開発元）。
@@ -109,6 +110,11 @@ const VENDORS = [
   { name: "Oversonic Robotics", keywords: ["Oversonic Robotics", "RoBee"] },
   { name: "3Srobotics", keywords: ["3Srobotics", "昇視唯盛"] },
   { name: "Ultra", keywords: ["Ultra Robotics", "OP1", "Ultraroboticsco"] },
+  { name: "Geely", keywords: ["Geely", "吉利"] },
+  { name: "Lightwheel", keywords: ["Lightwheel", "Real2Sim2Real"] },
+  { name: "Medra", keywords: ["Medra"] },
+  { name: "Mimic Robotics", keywords: ["Mimic Robotics", "mimic-video"] },
+  { name: "DEEP Robotics", keywords: ["DEEP Robotics"] },
 ];
 
 // 事例が実際に導入・運用されている国。会社の国籍ではなく、記事内で確認できた導入先の国。
@@ -136,6 +142,7 @@ const COUNTRIES = [
   { name: "サウジアラビア", keywords: ["サウジアラビア"] },
   { name: "ベトナム", keywords: ["ベトナム"] },
   { name: "エジプト", keywords: ["エジプト"] },
+  { name: "シンガポール", keywords: ["シンガポール"] },
 ];
 
 module.exports = { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES };

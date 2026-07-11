@@ -2041,5 +2041,117 @@
     "countryHints": [
       "中国"
     ]
+  },
+  {
+    "title": "Geely、Lightwheelの「Real2Sim2Real」基盤で自社製ヒューマノイドを生産ラインに本格展開",
+    "url": "https://lightwheel.ai/media/geely-humanoid-robots",
+    "publishedDate": "2026-07-01",
+    "sourceName": "Lightwheel（公式ケーススタディ）",
+    "company": "Geely",
+    "summary": "中国の自動車メーカーGeelyは、自社開発のヒューマノイドロボットを吉利汽車の生産ラインに投入し、人間の作業者と並んで部品の仕分け・シーケンシングを行わせている。Lightwheelの「Real2Sim2Real」基盤（現場作業者の動作を一人称視点で収録するEgoSuite、実機の物理特性を反映したシミュレーション、継続学習ループ）を活用することで、タスクごとの学習・改善サイクルを従来の数か月単位から数週間単位に短縮し、学習コストも大幅に削減した。",
+    "imageUrl": "https://lw-cdn.lightwheel.net/build/lightwheel/_next/static/media/image-3.138dc4d3.webp",
+    "industryHints": [
+      "自動車",
+      "製造業"
+    ],
+    "useCaseHints": [
+      "ピッキング・搬送",
+      "組立"
+    ],
+    "vendorHints": [
+      "Geely",
+      "Lightwheel"
+    ],
+    "countryHints": [
+      "中国"
+    ]
+  },
+  {
+    "title": "Medra、100台超のロボットが24時間稼働する全米最大の自律型ラボ「Medra Lab 001」を始動",
+    "url": "https://www.medra.ai/medra-lab-001",
+    "publishedDate": "2026-04-23",
+    "sourceName": "Medra（公式サイト）",
+    "company": "Medra",
+    "summary": "バイオAI企業Medraは、38,000平方フィートの施設に100台超のロボットを配備し24時間稼働させる、米国最大規模の自律型研究ラボ「Medra Lab 001（ML001）」を稼働開始した。同社の「Physical AI Scientist」は実験機器の75%超を自律操作できるVision Language Lab Actionモデルを搭載し、抗体探索・タンパク質工学・遺伝子編集・ゲノミクス・細胞生物学の分野でGenentechなどのパートナー企業と実運用を行っている。仮説立案から実験設計、科学的推論、物理的実行までを一つの施設で完結させる。",
+    "imageUrl": "https://cdn.prod.website-files.com/68bf1d91684fd08a07b0d8e3/69ea3f7dfe2118b2fbec231c_Screenshot%202026-04-23%20at%208.49.06%E2%80%AFAM.jpg",
+    "industryHints": [
+      "医療・介護"
+    ],
+    "useCaseHints": [
+      "研究・実験"
+    ],
+    "vendorHints": [
+      "Medra"
+    ],
+    "countryHints": [
+      "アメリカ"
+    ]
+  },
+  {
+    "title": "Audi、Mimic Roboticsと提携しAI駆動の双腕ロボットでドアフレームのウェザーストリップ取付を自動化",
+    "url": "https://www.humanoidsdaily.com/news/audi-partners-with-mimic-robotics-for-ai-driven-automotive-assembly",
+    "publishedDate": "2026-02-24",
+    "sourceName": "Humanoids Daily",
+    "company": "Audi",
+    "summary": "ドイツの自動車大手Audiが、スイス・チューリッヒ拠点のスタートアップMimic Roboticsと戦略提携を結んだ。両社が公開した最初の成果映像では、双腕ロボットプラットフォームがAudiのドアフレームにゴム製ウェザーストリップを自律的に取り付ける、精密性が求められる複雑なタスクを実演。Mimicの「ピクセル・トゥ・アクション」方式のVideo-Action Model（VAM）により、従来のように動作を逐一プログラムすることなく、センサーの生データから直接協調動作を生成する。",
+    "imageUrl": "https://7jopx6ax2qhwmgqx.public.blob.vercel-storage.com/images/mimicxaudi.webp",
+    "industryHints": [
+      "自動車",
+      "製造業"
+    ],
+    "useCaseHints": [
+      "組立"
+    ],
+    "vendorHints": [
+      "Mimic Robotics"
+    ],
+    "countryHints": [
+      "ドイツ"
+    ]
+  },
+  {
+    "title": "Galbot、北京で24時間無人のスマート薬局をヒューマノイドロボットで運営",
+    "url": "https://x.com/CyberRobooo/status/2024461411095818523",
+    "publishedDate": "2026-02-19",
+    "sourceName": "CyberRobo（X投稿）",
+    "company": "非公表（北京市内の薬局）",
+    "summary": "Galbotの車輪型ヒューマノイドロボット「G1」が、北京の24時間無人スマート薬局で稼働している。顧客が注文すると、G1が自動で注文を受け付け、薬をピッキングして梱包し、人によるお渡しを待つ。これによりシフト勤務の必要がなくなり、人手への依存を減らしている。同ロボットはすでに10店舗以上で試験導入されているという。",
+    "imageUrl": "https://pbs.twimg.com/amplify_video_thumb/2024461321442643972/img/3mNtrxel9lidotvm.jpg",
+    "industryHints": [
+      "医療・介護",
+      "小売"
+    ],
+    "useCaseHints": [
+      "ピッキング・搬送",
+      "接客・案内"
+    ],
+    "vendorHints": [
+      "Galbot"
+    ],
+    "countryHints": [
+      "中国"
+    ]
+  },
+  {
+    "title": "DEEP Robotics、4足歩行ロボット「X30」による警備パトロールソリューションをシンガポールで実運用",
+    "url": "https://www.youtube.com/watch?v=tB3hg0pp0W4",
+    "publishedDate": "2026-02-11",
+    "sourceName": "DEEP Robotics（公式YouTubeチャンネル）",
+    "company": "非公表（シンガポール国内の施設）",
+    "summary": "DEEP Roboticsの4足歩行ロボット「X30」による警備パトロールソリューションが、シンガポールで実運用を開始した。スマートセキュリティーの新たなベンチマークと位置づけられており、広域施設内の巡回・監視業務を自律的に担う。",
+    "imageUrl": "https://img.youtube.com/vi/tB3hg0pp0W4/maxresdefault.jpg",
+    "industryHints": [
+      "公共・インフラ"
+    ],
+    "useCaseHints": [
+      "点検・保守",
+      "遠隔操作・監視"
+    ],
+    "vendorHints": [
+      "DEEP Robotics"
+    ],
+    "countryHints": [
+      "シンガポール"
+    ]
   }
 ]
