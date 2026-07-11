@@ -33,15 +33,6 @@ const els = {
   modalDate: document.getElementById("modal-date"),
   modalSummary: document.getElementById("modal-summary"),
   modalDetailBtn: document.getElementById("modal-detail-btn"),
-  requestBtn: document.getElementById("request-btn"),
-  requestOverlay: document.getElementById("request-modal-overlay"),
-  requestModalClose: document.getElementById("request-modal-close"),
-  requestFormView: document.getElementById("request-form-view"),
-  requestThanksView: document.getElementById("request-thanks-view"),
-  requestUrlInput: document.getElementById("request-url-input"),
-  requestFormError: document.getElementById("request-form-error"),
-  requestSubmitBtn: document.getElementById("request-submit-btn"),
-  requestCloseBtn: document.getElementById("request-close-btn"),
 };
 
 function setupCollapse(toggleBtn, contentEl) {
@@ -345,68 +336,10 @@ els.overlay.addEventListener("click", (e) => {
   if (e.target === els.overlay) closeModal();
 });
 document.addEventListener("keydown", (e) => {
-  if (e.key !== "Escape") return;
-  if (els.overlay.classList.contains("open")) closeModal();
-  if (els.requestOverlay.classList.contains("open")) closeRequestModal();
+  if (e.key === "Escape" && els.overlay.classList.contains("open")) closeModal();
 });
 
 els.clearFilterBtn.addEventListener("click", () => setFilter(null, null, null, null));
-
-// 事例追加リクエスト（静的サイトのため、送信はメールで受け付ける）
-const REQUEST_RECEIVER_EMAIL = "matsukawa.tatsuya@gmail.com";
-
-function isValidUrl(value) {
-  try {
-    new URL(value);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function openRequestModal() {
-  els.requestUrlInput.value = "";
-  els.requestFormError.hidden = true;
-  els.requestFormView.hidden = false;
-  els.requestThanksView.hidden = true;
-  els.requestOverlay.classList.add("open");
-  document.body.style.overflow = "hidden";
-  els.requestUrlInput.focus();
-}
-
-function closeRequestModal() {
-  els.requestOverlay.classList.remove("open");
-  document.body.style.overflow = "";
-}
-
-function submitCaseRequest() {
-  const url = els.requestUrlInput.value.trim();
-  if (!url || !isValidUrl(url)) {
-    els.requestFormError.textContent = "有効なURLを入力してください。";
-    els.requestFormError.hidden = false;
-    return;
-  }
-  els.requestFormError.hidden = true;
-
-  const subject = "フィジカルAI事例集 - 事例追加リクエスト";
-  const body = `以下のURLの事例追加をリクエストします。\n\n${url}`;
-  const mailtoUrl = `mailto:${REQUEST_RECEIVER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailtoUrl;
-
-  els.requestFormView.hidden = true;
-  els.requestThanksView.hidden = false;
-}
-
-els.requestBtn.addEventListener("click", openRequestModal);
-els.requestModalClose.addEventListener("click", closeRequestModal);
-els.requestCloseBtn.addEventListener("click", closeRequestModal);
-els.requestOverlay.addEventListener("click", (e) => {
-  if (e.target === els.requestOverlay) closeRequestModal();
-});
-els.requestSubmitBtn.addEventListener("click", submitCaseRequest);
-els.requestUrlInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") submitCaseRequest();
-});
 
 function escapeHtml(str) {
   return (str || "").replace(/[&<>"']/g, (c) => ({
