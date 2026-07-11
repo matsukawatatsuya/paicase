@@ -35,7 +35,7 @@ const USE_CASES = [
   { name: "遠隔操作・監視", keywords: ["遠隔操作", "遠隔監視", "teleoperation", "remote monitoring", "telepresence"] },
   { name: "教育支援", keywords: ["教育支援", "教師アシスタント", "teaching assistant", "tutoring", "個別指導"] },
   { name: "手術支援", keywords: ["手術支援", "surgical", "surgery", "da Vinci", "ダ・ヴィンチ", "マイクロサージェリー"] },
-  { name: "研究・実験", keywords: ["研究・実験", "研究", "実験室", "laboratory", "research lab"] }
+  { name: "研究・実験", keywords: ["研究・実験", "実験室", "自律型ラボ", "laboratory", "research lab"] }
 ];
 
 // ロボットベンダー（ロボット本体・自律走行システムの開発元）。
