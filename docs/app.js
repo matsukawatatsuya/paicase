@@ -353,7 +353,7 @@ document.addEventListener("keydown", (e) => {
 els.clearFilterBtn.addEventListener("click", () => setFilter(null, null, null, null));
 
 // 事例追加リクエスト（静的サイトのため、送信はメールで受け付ける）
-const REQUEST_RECEIVER_EMAIL = "matsu.genai@gmail.com";
+const REQUEST_RECEIVER_EMAIL = "matsukawa.tatsuya@gmail.com";
 
 function isValidUrl(value) {
   try {
