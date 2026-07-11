@@ -37,7 +37,7 @@ function attachAllTags(db, caseId, tags) {
 }
 
 function insertCase(db, candidate) {
-  const score = officialScore(candidate.url, candidate.company);
+  const score = officialScore(candidate.url, candidate.company, candidate.vendorHints);
   const dedupeKey = normalizeForCompare(candidate.title);
 
   db.run(
@@ -63,7 +63,7 @@ function insertCase(db, candidate) {
 }
 
 function replaceCase(db, existingId, candidate) {
-  const score = officialScore(candidate.url, candidate.company);
+  const score = officialScore(candidate.url, candidate.company, candidate.vendorHints);
   const dedupeKey = normalizeForCompare(candidate.title);
 
   db.run(
@@ -110,12 +110,12 @@ async function runUpdate(db) {
         title: candidate.title,
         url: candidate.url,
         company: candidate.company,
-        official_score: officialScore(candidate.url, candidate.company),
+        official_score: officialScore(candidate.url, candidate.company, candidate.vendorHints),
       });
       continue;
     }
 
-    const candidateScore = officialScore(candidate.url, candidate.company);
+    const candidateScore = officialScore(candidate.url, candidate.company, candidate.vendorHints);
     if (candidateScore > dup.existing.official_score) {
       replaceCase(db, dup.existing.id, candidate);
       updatedTitles.push(candidate.title);

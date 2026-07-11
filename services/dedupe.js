@@ -44,7 +44,9 @@ function hostnameOf(url) {
   }
 }
 
-function officialScore(url, company = "") {
+// company: 導入企業名。vendorNames: ロボットベンダー名（例: ["Boston Dynamics"]）。
+// 記事の発行元は導入企業の公式サイトとは限らず、ベンダー自身のケーススタディページである場合もあるため両方を照合する。
+function officialScore(url, company = "", vendorNames = []) {
   const host = hostnameOf(url);
   if (!host) return 1;
 
@@ -56,14 +58,17 @@ function officialScore(url, company = "") {
   }
   if (OFFICIAL_HINT_PATTERNS.some((p) => host.includes(p) || pathname.includes(p))) return 3;
 
-  const companyKey = Object.keys(COMPANY_DOMAIN_HINTS).find((key) =>
-    (company || "").toLowerCase().includes(key.toLowerCase()) || key === company
-  );
-  if (companyKey && COMPANY_DOMAIN_HINTS[companyKey].some((d) => host.includes(d))) return 3;
-  // 会社名の英字表記がそのままドメインに含まれるケース（例: komatsu.com）
-  if (company) {
-    const asciiCompany = company.toLowerCase().replace(/[^a-z0-9]/g, "");
-    if (asciiCompany.length >= 4 && host.replace(/[^a-z0-9]/g, "").includes(asciiCompany)) return 3;
+  const namesToCheck = [company, ...(vendorNames || [])].filter(Boolean);
+
+  for (const name of namesToCheck) {
+    const key = Object.keys(COMPANY_DOMAIN_HINTS).find(
+      (k) => name.toLowerCase().includes(k.toLowerCase()) || k === name
+    );
+    if (key && COMPANY_DOMAIN_HINTS[key].some((d) => host.includes(d))) return 3;
+
+    // 会社名・ベンダー名の英字表記がそのままドメインに含まれるケース（例: komatsu.com, bostondynamics.com）
+    const asciiName = name.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (asciiName.length >= 4 && host.replace(/[^a-z0-9]/g, "").includes(asciiName)) return 3;
   }
 
   if (KNOWN_MEDIA_DOMAINS.some((d) => host === d || host.endsWith("." + d))) return 2;

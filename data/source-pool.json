@@ -1937,5 +1937,26 @@
     "countryHints": [
       "エジプト"
     ]
+  },
+  {
+    "title": "Boston Dynamics、Coca-Cola Europacific Partnersの飲料工場で4足歩行ロボット「Spot」による定期点検を実施",
+    "url": "https://bostondynamics.com/case-studies/spot-at-coca-cola-europacific-partners/",
+    "publishedDate": "2026-07-01",
+    "sourceName": "Boston Dynamics（公式ケーススタディ）",
+    "company": "Coca-Cola Europacific Partners",
+    "summary": "Boston Dynamicsの4足歩行ロボット「Spot」が、英スコットランド・East Kilbrideにあるコカ・コーラ ヨーロピアシフィック・パートナーズの飲料製造工場で、毎日・毎時間の定期巡回点検を担っている。熱画像カメラで電気パネルを監視し、超音波・振動測定でギアボックスやモーターの異常を診断、AIビジョンで消火器の設置状況など安全装置の確認も行う。人手では実施が難しい頻度での巡回により、設備故障の早期発見と予防保全を実現している。",
+    "imageUrl": "https://bostondynamics.com/wp-content/uploads/2026/07/ccep-thumbnail.jpg",
+    "industryHints": [
+      "食品"
+    ],
+    "useCaseHints": [
+      "点検・保守"
+    ],
+    "vendorHints": [
+      "Boston Dynamics"
+    ],
+    "countryHints": [
+      "イギリス"
+    ]
   }
 ]
