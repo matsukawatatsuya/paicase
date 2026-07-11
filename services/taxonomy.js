@@ -107,6 +107,8 @@ const VENDORS = [
   { name: "Mariana Minerals", keywords: ["Mariana Minerals", "MarianaOS"] },
   { name: "Skild AI", keywords: ["Skild AI", "Skild Brain"] },
   { name: "Oversonic Robotics", keywords: ["Oversonic Robotics", "RoBee"] },
+  { name: "3Srobotics", keywords: ["3Srobotics", "昇視唯盛"] },
+  { name: "Ultra", keywords: ["Ultra Robotics", "OP1", "Ultraroboticsco"] },
 ];
 
 // 事例が実際に導入・運用されている国。会社の国籍ではなく、記事内で確認できた導入先の国。
