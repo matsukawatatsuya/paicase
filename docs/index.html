@@ -15,6 +15,9 @@
           <h1>フィジカルAI事例集</h1>
         </div>
       </div>
+      <div class="topbar-actions">
+        <button id="request-btn" class="btn btn-primary">事例追加リクエスト</button>
+      </div>
     </div>
   </header>
 
@@ -84,6 +87,26 @@
           <p id="modal-summary"></p>
         </div>
         <button id="modal-detail-btn" class="btn btn-primary">詳細表示（ソースを別タブで開く）↗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 事例追加リクエストモーダル -->
+  <div class="modal-overlay" id="request-modal-overlay">
+    <div class="modal request-modal" role="dialog" aria-modal="true" aria-labelledby="request-modal-title">
+      <button class="modal-close" id="request-modal-close" aria-label="閉じる">&times;</button>
+      <div class="modal-body">
+        <h2 class="modal-title" id="request-modal-title">事例追加リクエスト</h2>
+        <div id="request-form-view">
+          <p id="request-form-message">追加したい事例のURLを入力してください</p>
+          <input type="url" id="request-url-input" class="request-url-input" placeholder="https://example.com/news/..." />
+          <p id="request-form-error" class="request-form-error" hidden></p>
+          <button id="request-submit-btn" class="btn btn-primary">送信</button>
+        </div>
+        <div id="request-thanks-view" hidden>
+          <p>リクエストありがとうございます。管理者にて確認のうえデータを追加します。</p>
+          <button id="request-close-btn" class="btn btn-primary">閉じる</button>
+        </div>
       </div>
     </div>
   </div>

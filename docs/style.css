@@ -46,6 +46,7 @@ body {
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-mark { font-size: 28px; color: var(--accent); }
 .brand h1 { font-size: 18px; margin: 0; }
+.topbar-actions { display: flex; align-items: center; gap: 12px; }
 
 .btn {
   border: none;
@@ -276,6 +277,21 @@ body {
 .modal-section h3 { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dim); margin: 4px 0 6px; }
 .modal-section p { font-size: 14px; margin: 0; }
 #modal-detail-btn { margin-top: 8px; align-self: flex-start; }
+
+.request-modal .modal-body { gap: 12px; }
+.request-url-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--panel-border);
+  background: #1a2236;
+  color: var(--text);
+}
+.request-url-input:focus { outline: none; border-color: var(--accent); }
+.request-form-error { color: #ff8080; font-size: 13px; margin: 0; }
+#request-thanks-view p { font-size: 14px; }
+#request-thanks-view #request-close-btn { margin-top: 4px; }
 
 @media (max-width: 640px) {
   .topbar-inner { flex-direction: column; align-items: flex-start; }
