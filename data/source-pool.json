@@ -2153,5 +2153,93 @@
     "countryHints": [
       "シンガポール"
     ]
+  },
+  {
+    "title": "Boston Dynamics、Spotで航空機エンジンMRO施設「ST Engineering MRAS」の予防保全・デジタルツイン構築を支援",
+    "url": "https://bostondynamics.com/case-studies/spot-at-st-engineering-mras/",
+    "publishedDate": "2026-02-18",
+    "sourceName": "Boston Dynamics（公式ケーススタディ）",
+    "company": "ST Engineering MRAS",
+    "summary": "Boston Dynamicsの4足歩行ロボット「Spot」が、航空機エンジンのMRO（保守・修理・オーバーホール）事業を手がけるST Engineering MRASの約150万平方フィートの整備施設を自動巡回している。サーマルカメラと音響イメージングセンサーでモーターや電気部品の異常兆候を検出し、Leicaレーザースキャナーと連携して3D点群データを取得、施設のデジタルツイン構築にも活用している。",
+    "imageUrl": "https://bostondynamics.com/wp-content/uploads/2026/02/mras-acoustic-sensing.jpg",
+    "industryHints": [
+      "製造業"
+    ],
+    "useCaseHints": [
+      "点検・保守",
+      "遠隔操作・監視"
+    ],
+    "vendorHints": [
+      "Boston Dynamics"
+    ],
+    "countryHints": [
+      "アメリカ"
+    ]
+  },
+  {
+    "title": "Boston Dynamics、Spotでカリフォルニア州運輸局（Caltrans）の閉鎖空間点検を代替",
+    "url": "https://bostondynamics.com/case-studies/spot-inspects-confined-spaces-for-caltrans/",
+    "publishedDate": "2026-04-08",
+    "sourceName": "Boston Dynamics（公式ケーススタディ）",
+    "company": "California Department of Transportation（Caltrans）",
+    "summary": "カリフォルニア州運輸局（Caltrans）が、カルバートや橋梁内部などの閉鎖・危険空間の検査にSpotを導入した。SLAM lidarスキャナーを搭載し、300フィートのカルバートを10分以内で完全に3Dスキャンして損傷箇所を特定する。人が立ち入る危険な作業を代替し、1件あたり5万〜6万ドルのコスト削減と安全性向上を実現している。",
+    "imageUrl": "https://bostondynamics.com/wp-content/uploads/2026/04/caltrans-screenshot-1.jpg",
+    "industryHints": [
+      "公共・インフラ",
+      "建設"
+    ],
+    "useCaseHints": [
+      "点検・保守",
+      "危険作業代替"
+    ],
+    "vendorHints": [
+      "Boston Dynamics"
+    ],
+    "countryHints": [
+      "アメリカ"
+    ]
+  },
+  {
+    "title": "Boston Dynamics、Spotがニューヨーク州オスウェゴ郡の消防・緊急対応活動を支援",
+    "url": "https://bostondynamics.com/case-studies/oswego-county-uses-spot-to-help-keep-first-responders-and-the-community-safer/",
+    "publishedDate": "2026-02-11",
+    "sourceName": "Boston Dynamics（公式ケーススタディ）",
+    "company": "Oswego County（ニューヨーク州オスウェゴ郡）",
+    "summary": "2025年9月のアルミ工場大規模火災の際、熱画像カメラ搭載のSpotが煙で視界不良の建物内に派遣され、消防隊員を危険にさらさずに火勢の最も激しい箇所を特定した。以降、バリケード立てこもり事件の現場偵察や、化学・放射線検知器を用いた環境リスク評価にも活用されており、郡内の原発や有害物質取扱施設周辺での安全確保に特に有用とされている。",
+    "imageUrl": "https://bostondynamics.com/wp-content/uploads/2026/02/oswego-county-spot-sq.jpg",
+    "industryHints": [
+      "公共・インフラ"
+    ],
+    "useCaseHints": [
+      "危険作業代替",
+      "遠隔操作・監視"
+    ],
+    "vendorHints": [
+      "Boston Dynamics"
+    ],
+    "countryHints": [
+      "アメリカ"
+    ]
+  },
+  {
+    "title": "FieldAI×Boston Dynamics、建設現場での自律点検・マッピングを実用化",
+    "url": "https://bostondynamics.com/case-studies/field-ai-boston-dynamics-made-autonomy-practical-on-construction-sites/",
+    "publishedDate": "2026-02-02",
+    "sourceName": "Boston Dynamics（公式ケーススタディ）",
+    "company": "非公表（大手建設企業複数社）",
+    "summary": "FieldAIの基盤モデル（Field Foundation Models）とBoston DynamicsのSpotを組み合わせ、事前マップやGPSに依存しないリアルタイムのリスク認識・自律判断を実現した。アジア・欧州・北米の建設現場で検査・マッピング・監視タスクを自律的に遂行しており、手作業に比べ検査・記録作業の時間を90%以上削減、数百万ドル規模のコスト超過回避につながった事例もある。",
+    "imageUrl": "https://bostondynamics.com/wp-content/uploads/2026/02/feild-ai-hero.jpg",
+    "industryHints": [
+      "建設"
+    ],
+    "useCaseHints": [
+      "点検・保守",
+      "遠隔操作・監視"
+    ],
+    "vendorHints": [
+      "Boston Dynamics",
+      "FieldAI"
+    ],
+    "countryHints": []
   }
 ]
