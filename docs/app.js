@@ -292,6 +292,7 @@ function renderCaseList() {
         ...c.useCases.map((t) => `<span class="tag-chip usecase">${escapeHtml(t)}</span>`),
         ...(c.vendors || []).map((t) => `<span class="tag-chip vendor">${escapeHtml(t)}</span>`),
         ...(c.countries || []).map((t) => `<span class="tag-chip country">${escapeHtml(t)}</span>`),
+        ...(c.robotTypes || []).map((t) => `<span class="tag-chip robot-type">${escapeHtml(t)}</span>`),
       ].join("");
       return `
         <article class="case-card" data-id="${c.id}" tabindex="0" role="button" aria-label="${escapeAttr(c.title)}">
@@ -355,6 +356,7 @@ function openModal(id) {
     ...c.useCases.map((t) => `<button type="button" class="tag-chip usecase" data-tag-type="usecase" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
     ...(c.vendors || []).map((t) => `<button type="button" class="tag-chip vendor" data-tag-type="vendor" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
     ...(c.countries || []).map((t) => `<button type="button" class="tag-chip country" data-tag-type="country" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
+    ...(c.robotTypes || []).map((t) => `<button type="button" class="tag-chip robot-type" data-tag-type="robot-type" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
   ].join("");
   els.modalTags.querySelectorAll("[data-tag-type]").forEach((el) => {
     el.addEventListener("click", () => filterByTagOnly(el.dataset.tagType, el.dataset.tagValue));

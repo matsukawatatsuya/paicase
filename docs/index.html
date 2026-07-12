@@ -18,22 +18,18 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <p>最新のフィジカルAI事例を業種・ユースケース・ベンダー・国ごとに絞り込んで閲覧できます。行・列や件数をクリックすると該当事例一覧へ移動します。</p>
-    </div>
-  </section>
+
 
   <main class="container">
     <section class="panel">
       <div class="panel-header">
-        <button class="collapse-toggle" id="matrix-toggle" aria-expanded="true" aria-controls="matrix-content">
+        <button class="collapse-toggle" id="matrix-toggle" aria-expanded="false" aria-controls="matrix-content">
           <span class="collapse-arrow">▼</span>
           <h2>業種 × ユースケース</h2>
         </button>
         <button id="clear-filter-btn" class="btn btn-ghost" hidden>絞り込み解除</button>
       </div>
-      <div class="matrix-scroll collapsible-content" id="matrix-content">
+      <div class="matrix-scroll collapsible-content" id="matrix-content" hidden>
         <table id="matrix-table" class="matrix-table"></table>
       </div>
     </section>
