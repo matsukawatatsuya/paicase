@@ -128,8 +128,17 @@ function computeRobotTypeCounts() {
       counts[rt] = (counts[rt] || 0) + 1;
     });
   });
-  const names = Object.keys(counts);
-  state.robotTypeCounts = state.robotTypes.filter((rt) => counts[rt]).map((rt) => ({ name: rt, cnt: counts[rt] || 0 }));
+  
+  // Get all unique robot types from allCases, sorted
+  const robotTypeSet = new Set();
+  state.allCases.forEach((c) => {
+    (c.robotTypes || []).forEach(rt => robotTypeSet.add(rt));
+  });
+  const sortedTypes = Array.from(robotTypeSet).sort();
+  
+  state.robotTypeCounts = sortedTypes
+    .filter((rt) => counts[rt])
+    .map((rt) => ({ name: rt, cnt: counts[rt] || 0 }));
 }
 
 function applyCaseFilter() {
