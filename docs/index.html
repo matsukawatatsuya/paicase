@@ -7,6 +7,53 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="passcode-gate" id="passcode-gate">
+    <form class="passcode-box" id="passcode-form">
+      <p class="passcode-title">パスコードを入力してください</p>
+      <input type="password" id="passcode-input" class="passcode-input" autocomplete="off" inputmode="numeric" placeholder="パスコード">
+      <button type="submit" class="btn btn-primary">開く</button>
+      <p class="passcode-error" id="passcode-error" hidden>パスコードが違います</p>
+    </form>
+  </div>
+  <script>
+  (function() {
+    var GATE_KEY = 'paicase_auth_ok';
+    var PASSCODE_HASH = 'a89879152a0418eaa00b25eb33278cfa3d866e92e2c8ff0ac2f3395452549bc6';
+    var gate = document.getElementById('passcode-gate');
+    var form = document.getElementById('passcode-form');
+    var input = document.getElementById('passcode-input');
+    var errorEl = document.getElementById('passcode-error');
+
+    function sha256Hex(text) {
+      var buf = new TextEncoder().encode(text);
+      return crypto.subtle.digest('SHA-256', buf).then(function(hashBuf) {
+        return Array.from(new Uint8Array(hashBuf)).map(function(b) {
+          return b.toString(16).padStart(2, '0');
+        }).join('');
+      });
+    }
+
+    if (sessionStorage.getItem(GATE_KEY) === '1') {
+      gate.remove();
+    } else {
+      input.focus();
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        sha256Hex(input.value.trim()).then(function(hash) {
+          if (hash === PASSCODE_HASH) {
+            sessionStorage.setItem(GATE_KEY, '1');
+            gate.remove();
+          } else {
+            errorEl.hidden = false;
+            input.value = '';
+            input.focus();
+          }
+        });
+      });
+    }
+  })();
+  </script>
+
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
