@@ -263,7 +263,12 @@ function renderCountryChips() {
 }
 
 function renderRobotTypeChips() {
+  console.log('renderRobotTypeChips called');
+  console.log('state.robotTypeCounts:', state.robotTypeCounts);
+  console.log('state.robotTypeCounts.length:', state.robotTypeCounts.length);
+  
   if (state.robotTypeCounts.length === 0) {
+    console.log('No robot type counts, showing empty message');
     els.robotTypeChips.innerHTML = `<p class="empty-note">まだロボットタイプ情報を持つ事例がありません。</p>`;
     return;
   }
