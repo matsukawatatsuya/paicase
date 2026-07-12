@@ -1,14 +1,17 @@
 const state = {
   industries: [],
   useCases: [],
+  robotTypes: [],
   allCases: [],
   matrix: { cells: {}, industryTotals: {}, usecaseTotals: {} },
   vendorCounts: [],
   countryCounts: [],
+  robotTypeCounts: [],
   filterIndustry: null,
   filterUsecase: null,
   filterVendor: null,
   filterCountry: null,
+  filterRobotType: null,
   cases: [],
 };
 
@@ -20,6 +23,8 @@ const els = {
   vendorChips: document.getElementById("vendor-chips"),
   countryToggle: document.getElementById("country-toggle"),
   countryChips: document.getElementById("country-chips"),
+  robotTypeToggle: document.getElementById("robot-type-toggle"),
+  robotTypeChips: document.getElementById("robot-type-chips"),
   caseList: document.getElementById("case-list"),
   filterLabel: document.getElementById("filter-label"),
   listCount: document.getElementById("list-count"),
@@ -45,6 +50,7 @@ function setupCollapse(toggleBtn, contentEl) {
 setupCollapse(els.matrixToggle, els.matrixContent);
 setupCollapse(els.vendorToggle, els.vendorChips);
 setupCollapse(els.countryToggle, els.countryChips);
+setupCollapse(els.robotTypeToggle, els.robotTypeChips);
 
 // 静的なdata.json（ビルド時にDBから書き出したスナップショット）を読み込み、
 // クロス集計・ベンダー件数・絞り込みはすべてブラウザ側で計算する。
@@ -53,6 +59,7 @@ async function loadData() {
   const data = await res.json();
   state.industries = data.industries;
   state.useCases = data.useCases;
+  state.robotTypes = data.robotTypes || [];
   state.allCases = data.cases;
 }
 
@@ -107,12 +114,24 @@ function computeCountryCounts() {
   state.countryCounts = [...alphabetic, ...other].map((name) => ({ name, cnt: counts[name] }));
 }
 
+function computeRobotTypeCounts() {
+  const counts = {};
+  state.allCases.forEach((c) => {
+    (c.robotTypes || []).forEach((rt) => {
+      counts[rt] = (counts[rt] || 0) + 1;
+    });
+  });
+  const names = Object.keys(counts);
+  state.robotTypeCounts = state.robotTypes.filter((rt) => counts[rt]).map((rt) => ({ name: rt, cnt: counts[rt] || 0 }));
+}
+
 function applyCaseFilter() {
   state.cases = state.allCases.filter((c) => {
     if (state.filterIndustry && !c.industries.includes(state.filterIndustry)) return false;
     if (state.filterUsecase && !c.useCases.includes(state.filterUsecase)) return false;
     if (state.filterVendor && !(c.vendors || []).includes(state.filterVendor)) return false;
     if (state.filterCountry && !(c.countries || []).includes(state.filterCountry)) return false;
+    if (state.filterRobotType && !(c.robotTypes || []).includes(state.filterRobotType)) return false;
     return true;
   });
 }
@@ -227,12 +246,33 @@ function renderCountryChips() {
   });
 }
 
+function renderRobotTypeChips() {
+  if (state.robotTypeCounts.length === 0) {
+    els.robotTypeChips.innerHTML = `<p class="empty-note">まだロボットタイプ情報を持つ事例がありません。</p>`;
+    return;
+  }
+  els.robotTypeChips.innerHTML = state.robotTypeCounts
+    .map((rt) => {
+      const active = state.filterRobotType === rt.name ? "active" : "";
+      return `<button class="vendor-chip ${active}" data-robot-type="${escapeAttr(rt.name)}">${escapeHtml(rt.name)} <span class="vendor-chip-count">${rt.cnt}</span></button>`;
+    })
+    .join("");
+
+  els.robotTypeChips.querySelectorAll(".vendor-chip").forEach((el) => {
+    el.addEventListener("click", () => {
+      const next = state.filterRobotType === el.dataset.robotType ? null : el.dataset.robotType;
+      setFilter(state.filterIndustry, state.filterUsecase, state.filterVendor, state.filterCountry, next);
+    });
+  });
+}
+
 function renderFilterLabel() {
   const parts = [];
   if (state.filterIndustry) parts.push(`業種: ${state.filterIndustry}`);
   if (state.filterUsecase) parts.push(`ユースケース: ${state.filterUsecase}`);
   if (state.filterVendor) parts.push(`ベンダー: ${state.filterVendor}`);
   if (state.filterCountry) parts.push(`国: ${state.filterCountry}`);
+  if (state.filterRobotType) parts.push(`ロボットタイプ: ${state.filterRobotType}`);
   els.filterLabel.textContent = parts.join(" ／ ");
   els.clearFilterBtn.hidden = parts.length === 0;
 }
@@ -280,14 +320,16 @@ function renderCaseList() {
   });
 }
 
-function setFilter(industry, usecase, vendor, country) {
+function setFilter(industry, usecase, vendor, country, robotType) {
   state.filterIndustry = industry;
   state.filterUsecase = usecase;
   state.filterVendor = vendor || null;
   state.filterCountry = country || null;
+  state.filterRobotType = robotType || null;
   renderMatrix();
   renderVendorChips();
   renderCountryChips();
+  renderRobotTypeChips();
   renderFilterLabel();
   applyCaseFilter();
   renderCaseList();
@@ -355,9 +397,11 @@ async function init() {
   computeMatrix();
   computeVendorCounts();
   computeCountryCounts();
+  computeRobotTypeCounts();
   renderMatrix();
   renderVendorChips();
   renderCountryChips();
+  renderRobotTypeChips();
   renderFilterLabel();
   applyCaseFilter();
   renderCaseList();
