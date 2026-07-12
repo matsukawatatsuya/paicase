@@ -59,7 +59,14 @@ async function loadData() {
   const data = await res.json();
   state.industries = data.industries;
   state.useCases = data.useCases;
-  state.robotTypes = data.robotTypes || [];
+  
+  // Extract unique robot types from cases
+  const robotTypeSet = new Set();
+  (data.cases || []).forEach(c => {
+    (c.robotTypes || []).forEach(rt => robotTypeSet.add(rt));
+  });
+  state.robotTypes = Array.from(robotTypeSet).sort();
+  
   state.allCases = data.cases;
 }
 
