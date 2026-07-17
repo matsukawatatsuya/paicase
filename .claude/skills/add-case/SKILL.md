@@ -33,6 +33,14 @@ description: physical-ai-trackerに新しいフィジカルAI事例を1件以上
 }
 ```
 
+**imageUrlの取得方法**: 記事ページをそのまま読み込むツール（WebFetch等）はLLM要約を介するため、`og:image`/`twitter:image`のメタタグを見落とすことがある（特にNikkei等の会員制・JS描画サイト）。`null`と判断する前に、必ず以下のように生HTMLを直接取得してメタタグを確認すること:
+
+```
+curl -s -A "Mozilla/5.0" "<記事URL>" | grep -o '<meta[^>]*og:image[^>]*>\|<meta[^>]*twitter:image[^>]*>'
+```
+
+取得できた画像URLは追加前に `curl -s -o /dev/null -w "%{http_code}"` 等で200が返ることを確認してから使う。
+
 タグ付けの実際の挙動（`services/tagger.js` / `services/taxonomy.js`）:
 
 - **industryHints / useCaseHints**: title・summary・company本文と合わせてキーワード照合される。ヒントは自由記述でよいが、`services/taxonomy.js` の `INDUSTRIES` / `USE_CASES` のkeywords配列に一致する語を含めると確実にタグが付く。
@@ -80,3 +88,7 @@ git push
 
 - 事例が1件も一致しない業種・ユースケース・国・ベンダーになった場合は、タグが空のまま登録される（エラーにはならない）。追加後は `docs/data.json` を確認し、意図したタグが付いているか確認するとよい。
 - `services/taxonomy.js` を編集した場合は、`node -e "require('./db/seed').seedMaster()"` 等でマスタテーブルに反映してから更新パイプラインを実行する（`npm start` 時にも自動実行される）。
+- **既に登録済みの事例（同一URL）を後から修正したい場合、`data/source-pool.json` を直すだけでは反映されない。** `services/dedupe.js` は同一URLを重複とみなし、`services/updatePipeline.js` は新候補の`officialScore`が既存より**厳密に高い**場合しか上書きしない（同スコアなら無条件スキップ）。画像URLの追加など、スコアが変わらない修正をする場合は、以下のいずれかで対応する:
+  - `db/init.js` の `getDb()` を使い、Node一行スクリプトで対象レコードを直接 `UPDATE cases SET ... WHERE url = ?` する（`db.run`実行後は自動でファイルに永続化される）
+  - または対象レコードをDBから`DELETE`してから`/api/update`を再実行し、`source-pool.json`の修正済みデータで再登録させる
+  - どちらの方法でも、修正後は必ず `node db/export.js` を再実行して `docs/data.json` に反映すること
