@@ -2370,5 +2370,24 @@
       "Boston Dynamics"
     ],
     "countryHints": []
+  },
+  {
+    "title": "ツムラが漢方工場にヒト型ロボ　27年度に導入、夜勤作業最大7割減",
+    "url": "https://www.nikkei.com/article/DGXZQOUC241QX0U6A620C2000000/",
+    "publishedDate": "2026-07-16",
+    "sourceName": "日本経済新聞",
+    "company": "ツムラ",
+    "summary": "漢方薬最大手のツムラは、茨城工場でヒューマノイド型ロボットを2027年度にパイロット導入する計画を明らかにした。まずは包装工程向けの資材搬送などピッキング・搬送作業を担わせ、将来的には判断を伴う作業への展開も視野に入れる。2035年度までに数百台規模での導入を目指し、夜勤作業を最大7割削減する狙い。",
+    "imageUrl": null,
+    "industryHints": [
+      "製造業"
+    ],
+    "useCaseHints": [
+      "ピッキング・搬送"
+    ],
+    "vendorHints": [],
+    "countryHints": [
+      "日本"
+    ]
   }
 ]
