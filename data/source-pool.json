@@ -2389,5 +2389,72 @@
     "countryHints": [
       "日本"
     ]
+  },
+  {
+    "title": "HD現代、造船所向けAIヒューマノイド溶接ロボットの開発で米Persona AIと提携",
+    "url": "https://finance.biggo.jp/news/URJ7GZ0BOIb5XxavBras",
+    "publishedDate": "2026-03-23",
+    "sourceName": "BIGGO Finance",
+    "company": "HD現代",
+    "summary": "HD現代グループのHD韓国造船海洋・HD現代ロボティクスは、米Persona AIと共同開発契約を締結し、造船所向けのAI搭載ヒューマノイド溶接ロボットを開発する。2025年5月のMOU締結から本格的な検証・商用化フェーズへ移行し、各社が役割分担しながら試作機の性能検証を進める。2026年内の試作機完成、2027年の実地試験・商用展開を目指す。",
+    "imageUrl": null,
+    "industryHints": [
+      "製造業"
+    ],
+    "useCaseHints": [
+      "組立"
+    ],
+    "vendorHints": [
+      "Persona AI"
+    ],
+    "countryHints": [
+      "韓国",
+      "アメリカ"
+    ]
+  },
+  {
+    "title": "小米（Xiaomi）、人型ロボットの自動車工場「実習」進捗を公開　ねじ締め成功率98%に到達",
+    "url": "https://technode.com/2026/07/15/xiaomi-updates-progress-on-humanoid-robots-in-auto-factory-achieves-98-success-rate-in-some-tasks/",
+    "publishedDate": "2026-07-15",
+    "sourceName": "TechNode",
+    "company": "Xiaomi",
+    "summary": "Xiaomiは自動車工場で「実習」中の人型ロボットの最新進捗を公開した。4ヶ月間の改善を経て、自動ねじ込みナット装填工程の成功率が90.2%から98%まで向上し、熟練工との差は1ポイントまで縮小した。新たにセンターコンソール側面パネルの仕分け、部品箱の折り畳み・回収という2つの工程にも展開し、いずれも成功率90%を達成している。",
+    "imageUrl": "https://technode.com/wp-content/uploads/2025/10/xiaomi-factory.png",
+    "industryHints": [
+      "製造業",
+      "自動車"
+    ],
+    "useCaseHints": [
+      "ピッキング・搬送",
+      "組立"
+    ],
+    "vendorHints": [
+      "Xiaomi"
+    ],
+    "countryHints": [
+      "中国"
+    ]
+  },
+  {
+    "title": "矢崎総業、ヒト型ロボットで部品生産自動化　30年に量産工場に導入へ",
+    "url": "https://www.nikkei.com/article/DGXZQOUC143J10U6A710C2000000/",
+    "publishedDate": "2026-07-15",
+    "sourceName": "日本経済新聞",
+    "company": "矢崎総業",
+    "summary": "自動車部品大手の矢崎総業は、静岡県裾野市の新拠点「Innovation Hub－REN（錬）」で、中国AGIBOT製の頭部・両腕を備えた人型ロボットとAIを用いて、これまで人手に頼っていたワイヤーハーネスなどの部品生産を自動化する方針を明らかにした。熟練工が感覚的に調整していた巻く強さや角度をロボットとAIで再現することを目指し、2030年の量産工場への導入を目標とする。東京科学大学とヒューマノイド・協働ロボット分野の共同研究も進めている。",
+    "imageUrl": "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3312708015072026000000-1.jpg?auto=compress&bg=FFFF&crop=focalpoint&fit=crop&fm=jpg&h=630&w=1200&s=45d1f23c0998eb2eacd33afc6ddb95ec",
+    "industryHints": [
+      "製造業",
+      "自動車"
+    ],
+    "useCaseHints": [
+      "組立"
+    ],
+    "vendorHints": [
+      "AgiBot（智元）"
+    ],
+    "countryHints": [
+      "日本"
+    ]
   }
 ]
