@@ -11,6 +11,7 @@ async function exportData() {
 
   const industries = db.all("SELECT name FROM industries ORDER BY sort_order").map((r) => r.name);
   const useCases = db.all("SELECT name FROM use_cases ORDER BY sort_order").map((r) => r.name);
+  const robotTypes = db.all("SELECT name FROM robot_types ORDER BY sort_order").map((r) => r.name);
 
   const cases = db.all(`
     SELECT id, title, url, published_date, source_name, official_score, company, summary, image_url
@@ -31,13 +32,17 @@ async function exportData() {
     const caseCountries = db
       .all(`SELECT co.name FROM case_countries cc JOIN countries co ON co.id = cc.country_id WHERE cc.case_id = ?`, [c.id])
       .map((r) => r.name);
-    return { ...c, industries: caseIndustries, useCases: caseUseCases, vendors: caseVendors, countries: caseCountries };
+    const caseRobotTypes = db
+      .all(`SELECT rt.name FROM case_robot_types crt JOIN robot_types rt ON rt.id = crt.robot_type_id WHERE crt.case_id = ?`, [c.id])
+      .map((r) => r.name);
+    return { ...c, industries: caseIndustries, useCases: caseUseCases, vendors: caseVendors, countries: caseCountries, robotTypes: caseRobotTypes };
   });
 
   const data = {
     generatedAt: new Date().toISOString(),
     industries,
     useCases,
+    robotTypes,
     cases: withTags,
   };
 

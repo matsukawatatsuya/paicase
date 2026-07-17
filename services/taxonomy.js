@@ -149,4 +149,14 @@ const COUNTRIES = [
   { name: "フランス", keywords: ["フランス"] },
 ];
 
-module.exports = { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES };
+// ロボットタイプの分類。実装・研究中のロボットの物理形態による分類。
+const ROBOT_TYPES = [
+  { name: "ヒューマノイド", keywords: ["humanoid", "ヒューマノイド", "human-like", "人型", "biped", "phoenix", "apollo", "digit", "g1", "walker s", "motion_1", "mech"] },
+  { name: "ロボットアーム", keywords: ["robot arm", "ロボットアーム", "manipulator", "collaborative arm", "cobot arm", "arm robot", "双腕", "ur10", "yamaha", "universal robot"] },
+  { name: "四足歩行ロボット", keywords: ["quadruped", "四足", "4足", "quadlegged", "go2", "spot", "atlas", "agibot", "x30"] },
+  { name: "AMR/AGV", keywords: ["amr", "agv", "autonomous mobile robot", "autonomous guided vehicle", "自律走行ロボット", "mobile robot", "mir", "eve", "proteus", "autonomous vehicle"] },
+  { name: "自動運転車", keywords: ["autonomous truck", "robotaxi", "ロボタクシー", "self-driving", "automated haul truck", "autonomous haul", "zodiac", "waymo", "pony.ai", "zoox", "kodiak"] },
+  { name: "ドローン", keywords: ["drone", "ドローン", "uav", "quadcopter", "aerial robot", "unmanned aerial"] },
+];
+
+module.exports = { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES, ROBOT_TYPES };

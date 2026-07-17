@@ -1,7 +1,7 @@
 // キーワードマッチングによる自動タグ付け。
 // タイトル・要約・企業名などのテキストを業種/ユースケースのキーワード辞書と照合する。
 
-const { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES } = require("./taxonomy");
+const { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES, ROBOT_TYPES } = require("./taxonomy");
 
 function normalize(text) {
   return (text || "").toLowerCase();
@@ -35,7 +35,10 @@ function tagCandidate(candidate) {
   const vendors = matchAgainst((candidate.vendorHints || []).join(" \n "), VENDORS);
   const countries = matchAgainst((candidate.countryHints || []).join(" \n "), COUNTRIES);
 
-  return { industries, useCases, vendors, countries };
+  // ロボットタイプはタイトル・要約から自動検出
+  const robotTypes = matchAgainst(baseText, ROBOT_TYPES);
+
+  return { industries, useCases, vendors, countries, robotTypes };
 }
 
 module.exports = { tagCandidate, matchAgainst, normalize };
