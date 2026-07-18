@@ -19,6 +19,9 @@
     ],
     "countryHints": [
       "カナダ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -41,6 +44,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -63,6 +69,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -85,6 +94,9 @@
     ],
     "countryHints": [
       "ドイツ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -106,6 +118,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -125,7 +140,10 @@
     "vendorHints": [
       "UBTech"
     ],
-    "countryHints": []
+    "countryHints": [],
+    "phaseHints": [
+      "実証実験フェーズ"
+    ]
   },
   {
     "title": "Hyundai Motor Group、Boston Dynamics「Atlas」をメタプラント・アメリカで初の実環境テスト",
@@ -148,6 +166,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -170,6 +191,9 @@
     ],
     "countryHints": [
       "ドイツ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -194,6 +218,9 @@
     "countryHints": [
       "ドイツ",
       "ハンガリー"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -214,7 +241,10 @@
     "vendorHints": [
       "Sanctuary AI"
     ],
-    "countryHints": []
+    "countryHints": [],
+    "phaseHints": [
+      "本番稼働フェーズ"
+    ]
   },
   {
     "title": "Vodafone Germany倉庫、Accenture・SAPとヒューマノイドロボットの安全巡回パイロットを実施",
@@ -236,6 +266,9 @@
     ],
     "countryHints": [
       "ドイツ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -258,6 +291,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -282,6 +318,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -304,6 +343,9 @@
     ],
     "countryHints": [
       "韓国"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -324,6 +366,9 @@
     "vendorHints": [],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -347,6 +392,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -369,6 +417,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -391,6 +442,9 @@
     ],
     "countryHints": [
       "ドイツ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -412,6 +466,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -434,6 +491,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -455,6 +515,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -476,6 +539,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -499,6 +565,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -521,6 +590,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -544,6 +616,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -566,6 +641,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -588,6 +666,9 @@
     ],
     "countryHints": [
       "アルゼンチン"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -610,6 +691,9 @@
     ],
     "countryHints": [
       "スイス"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -631,6 +715,9 @@
     "vendorHints": [],
     "countryHints": [
       "韓国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -654,6 +741,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -675,6 +765,9 @@
     ],
     "countryHints": [
       "デンマーク"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -695,6 +788,9 @@
     "vendorHints": [],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -714,6 +810,9 @@
     "vendorHints": [],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -735,6 +834,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -756,6 +858,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -775,6 +880,9 @@
     "vendorHints": [],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -794,6 +902,9 @@
     "vendorHints": [],
     "countryHints": [
       "韓国"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -815,6 +926,9 @@
     "vendorHints": [],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -836,6 +950,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -857,6 +974,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -879,6 +999,9 @@
     ],
     "countryHints": [
       "イギリス"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -903,6 +1026,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -922,6 +1048,9 @@
     "vendorHints": [],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -944,6 +1073,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -965,6 +1097,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -988,6 +1123,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -1009,6 +1147,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1031,6 +1172,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -1053,6 +1197,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -1075,6 +1222,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1097,6 +1247,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1119,6 +1272,9 @@
     ],
     "countryHints": [
       "イギリス"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1140,6 +1296,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1162,6 +1321,9 @@
     ],
     "countryHints": [
       "マルタ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1182,7 +1344,10 @@
     "vendorHints": [
       "Sanctuary AI"
     ],
-    "countryHints": []
+    "countryHints": [],
+    "phaseHints": [
+      "実証実験フェーズ"
+    ]
   },
   {
     "title": "Kawasaki Robotics、DexterityのヒューマノイドロボットMechへのアーム供給を拡大し倉庫物流の物理AIをスケール",
@@ -1202,7 +1367,10 @@
       "Kawasaki Robotics",
       "Dexterity"
     ],
-    "countryHints": []
+    "countryHints": [],
+    "phaseHints": [
+      "フェーズ不明"
+    ]
   },
   {
     "title": "Doosan Robotics、韓国Kwangjin Groupへ100台超の製造ロボットソリューションを供給する提携",
@@ -1225,6 +1393,9 @@
     ],
     "countryHints": [
       "韓国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1246,6 +1417,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -1266,7 +1440,10 @@
     "vendorHints": [
       "ABB Robotics"
     ],
-    "countryHints": []
+    "countryHints": [],
+    "phaseHints": [
+      "実証実験フェーズ"
+    ]
   },
   {
     "title": "Flex、Teradyne Robotics（Universal Robots／MiR）との提携を拡大し自社工場に協働ロボット・AMRを本格導入",
@@ -1287,7 +1464,10 @@
       "Universal Robots",
       "Mobile Industrial Robots（MiR）"
     ],
-    "countryHints": []
+    "countryHints": [],
+    "phaseHints": [
+      "フェーズ不明"
+    ]
   },
   {
     "title": "Techman Robot、台湾Jinpao Precisionの航空宇宙向け精密部品ラインに約50台のAIコボットを展開",
@@ -1309,6 +1489,9 @@
     ],
     "countryHints": [
       "台湾"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1331,6 +1514,9 @@
     ],
     "countryHints": [
       "ポルトガル"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -1351,6 +1537,9 @@
     "vendorHints": [],
     "countryHints": [
       "オランダ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1374,6 +1563,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -1398,6 +1590,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1417,6 +1612,9 @@
     "vendorHints": [],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1437,7 +1635,10 @@
     "vendorHints": [
       "SVT Robotics"
     ],
-    "countryHints": []
+    "countryHints": [],
+    "phaseHints": [
+      "本番稼働フェーズ"
+    ]
   },
   {
     "title": "HD Hyundai Heavy Industries、AI溶接協働ロボットで造船生産量を最大2倍に",
@@ -1459,6 +1660,9 @@
     ],
     "countryHints": [
       "韓国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1480,6 +1684,9 @@
     ],
     "countryHints": [
       "ドイツ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -1502,6 +1709,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1525,6 +1735,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1548,6 +1761,9 @@
     ],
     "countryHints": [
       "オーストラリア"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1569,6 +1785,9 @@
     ],
     "countryHints": [
       "メキシコ"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -1590,6 +1809,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -1612,6 +1834,9 @@
     ],
     "countryHints": [
       "オランダ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1634,6 +1859,9 @@
     ],
     "countryHints": [
       "オーストラリア"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -1655,6 +1883,9 @@
     "vendorHints": [],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1676,6 +1907,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -1697,6 +1931,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1719,6 +1956,9 @@
     ],
     "countryHints": [
       "チリ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1740,6 +1980,9 @@
     ],
     "countryHints": [
       "オーストラリア"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -1762,6 +2005,9 @@
     ],
     "countryHints": [
       "UAE"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1781,6 +2027,9 @@
     "vendorHints": [],
     "countryHints": [
       "韓国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1802,6 +2051,9 @@
     ],
     "countryHints": [
       "UAE"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1824,6 +2076,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -1846,6 +2101,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -1868,6 +2126,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -1891,6 +2152,9 @@
     ],
     "countryHints": [
       "サウジアラビア"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1915,6 +2179,9 @@
     ],
     "countryHints": [
       "ベトナム"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -1936,6 +2203,9 @@
     ],
     "countryHints": [
       "エジプト"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -1957,6 +2227,9 @@
     ],
     "countryHints": [
       "イギリス"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -1978,6 +2251,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2000,6 +2276,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2021,6 +2300,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2040,6 +2322,9 @@
     "vendorHints": [],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   },
   {
@@ -2064,6 +2349,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2085,6 +2373,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2107,6 +2398,9 @@
     ],
     "countryHints": [
       "ドイツ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -2130,6 +2424,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -2152,6 +2449,9 @@
     ],
     "countryHints": [
       "シンガポール"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2174,6 +2474,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2197,6 +2500,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2219,6 +2525,9 @@
     ],
     "countryHints": [
       "アメリカ"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2240,7 +2549,10 @@
       "Boston Dynamics",
       "FieldAI"
     ],
-    "countryHints": []
+    "countryHints": [],
+    "phaseHints": [
+      "本番稼働フェーズ"
+    ]
   },
   {
     "title": "東京科学大学、双腕ロボット「まほろ」でバイオ研究の自動化拠点を新設",
@@ -2261,6 +2573,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2283,6 +2598,9 @@
     ],
     "countryHints": [
       "フランス"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2303,6 +2621,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -2325,6 +2646,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -2349,6 +2673,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
     ]
   },
   {
@@ -2369,7 +2696,10 @@
     "vendorHints": [
       "Boston Dynamics"
     ],
-    "countryHints": []
+    "countryHints": [],
+    "phaseHints": [
+      "本番稼働フェーズ"
+    ]
   },
   {
     "title": "ツムラが漢方工場にヒト型ロボ　27年度に導入、夜勤作業最大7割減",
@@ -2388,6 +2718,9 @@
     "vendorHints": [],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -2410,6 +2743,9 @@
     "countryHints": [
       "韓国",
       "アメリカ"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -2433,6 +2769,9 @@
     ],
     "countryHints": [
       "中国"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
     ]
   },
   {
@@ -2455,6 +2794,9 @@
     ],
     "countryHints": [
       "日本"
+    ],
+    "phaseHints": [
+      "フェーズ不明"
     ]
   }
 ]

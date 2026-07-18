@@ -160,4 +160,13 @@ const ROBOT_TYPES = [
   { name: "ドローン", keywords: ["drone", "ドローン", "uav", "quadcopter", "aerial robot", "unmanned aerial"] },
 ];
 
-module.exports = { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES, ROBOT_TYPES };
+// 導入フェーズ（本番稼働 / 実証実験 / 不明）。
+// vendorHints・countryHints同様、本文全体からの自動検出は行わず、
+// 収集時に記事内容を確認して判定したphaseHintsとだけ照合する（表記ゆれ・誤判定を避けるため）。
+const PHASES = [
+  { name: "本番稼働フェーズ", keywords: ["本番稼働フェーズ"] },
+  { name: "実証実験フェーズ", keywords: ["実証実験フェーズ"] },
+  { name: "フェーズ不明", keywords: ["フェーズ不明"] },
+];
+
+module.exports = { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES, ROBOT_TYPES, PHASES };

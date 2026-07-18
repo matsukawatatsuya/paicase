@@ -7,11 +7,13 @@ const state = {
   vendorCounts: [],
   countryCounts: [],
   robotTypeCounts: [],
+  phaseCounts: [],
   filterIndustry: null,
   filterUsecase: null,
   filterVendor: null,
   filterCountry: null,
   filterRobotType: null,
+  filterPhase: null,
   cases: [],
 };
 
@@ -25,6 +27,8 @@ const els = {
   countryChips: document.getElementById("country-chips"),
   robotTypeToggle: document.getElementById("robot-type-toggle"),
   robotTypeChips: document.getElementById("robot-type-chips"),
+  phaseToggle: document.getElementById("phase-toggle"),
+  phaseChips: document.getElementById("phase-chips"),
   caseList: document.getElementById("case-list"),
   filterLabel: document.getElementById("filter-label"),
   listCount: document.getElementById("list-count"),
@@ -51,6 +55,16 @@ setupCollapse(els.matrixToggle, els.matrixContent);
 setupCollapse(els.vendorToggle, els.vendorChips);
 setupCollapse(els.countryToggle, els.countryChips);
 setupCollapse(els.robotTypeToggle, els.robotTypeChips);
+setupCollapse(els.phaseToggle, els.phaseChips);
+
+// 表示順は固定（本番稼働 → 実証実験 → 不明）。件数の多寡やアルファベット順ではなく、
+// 「確度の高い順」で並べたほうが一覧として読みやすいため。
+const PHASE_ORDER = ["本番稼働フェーズ", "実証実験フェーズ", "フェーズ不明"];
+function phaseClass(name) {
+  if (name === "本番稼働フェーズ") return "phase-production";
+  if (name === "実証実験フェーズ") return "phase-pilot";
+  return "phase-unknown";
+}
 
 // 静的なdata.json（ビルド時にDBから書き出したスナップショット）を読み込み、
 // クロス集計・ベンダー件数・絞り込みはすべてブラウザ側で計算する。
@@ -66,7 +80,7 @@ async function loadData() {
     (c.robotTypes || []).forEach(rt => robotTypeSet.add(rt));
   });
   state.robotTypes = Array.from(robotTypeSet).sort();
-  
+
   state.allCases = data.cases;
 }
 
@@ -141,6 +155,16 @@ function computeRobotTypeCounts() {
     .map((rt) => ({ name: rt, cnt: counts[rt] || 0 }));
 }
 
+function computePhaseCounts() {
+  const counts = {};
+  state.allCases.forEach((c) => {
+    (c.phases || []).forEach((p) => {
+      counts[p] = (counts[p] || 0) + 1;
+    });
+  });
+  state.phaseCounts = PHASE_ORDER.filter((p) => counts[p]).map((p) => ({ name: p, cnt: counts[p] || 0 }));
+}
+
 function applyCaseFilter() {
   state.cases = state.allCases.filter((c) => {
     if (state.filterIndustry && !c.industries.includes(state.filterIndustry)) return false;
@@ -148,6 +172,7 @@ function applyCaseFilter() {
     if (state.filterVendor && !(c.vendors || []).includes(state.filterVendor)) return false;
     if (state.filterCountry && !(c.countries || []).includes(state.filterCountry)) return false;
     if (state.filterRobotType && !(c.robotTypes || []).includes(state.filterRobotType)) return false;
+    if (state.filterPhase && !(c.phases || []).includes(state.filterPhase)) return false;
     return true;
   });
 }
@@ -282,7 +307,27 @@ function renderRobotTypeChips() {
   els.robotTypeChips.querySelectorAll(".vendor-chip").forEach((el) => {
     el.addEventListener("click", () => {
       const next = state.filterRobotType === el.dataset.robotType ? null : el.dataset.robotType;
-      setFilter(state.filterIndustry, state.filterUsecase, state.filterVendor, state.filterCountry, next);
+      setFilter(state.filterIndustry, state.filterUsecase, state.filterVendor, state.filterCountry, next, state.filterPhase);
+    });
+  });
+}
+
+function renderPhaseChips() {
+  if (state.phaseCounts.length === 0) {
+    els.phaseChips.innerHTML = `<p class="empty-note">まだフェーズ情報を持つ事例がありません。</p>`;
+    return;
+  }
+  els.phaseChips.innerHTML = state.phaseCounts
+    .map((p) => {
+      const active = state.filterPhase === p.name ? "active" : "";
+      return `<button class="vendor-chip phase-chip ${phaseClass(p.name)} ${active}" data-phase="${escapeAttr(p.name)}">${escapeHtml(p.name)} <span class="vendor-chip-count">${p.cnt}</span></button>`;
+    })
+    .join("");
+
+  els.phaseChips.querySelectorAll(".vendor-chip").forEach((el) => {
+    el.addEventListener("click", () => {
+      const next = state.filterPhase === el.dataset.phase ? null : el.dataset.phase;
+      setFilter(state.filterIndustry, state.filterUsecase, state.filterVendor, state.filterCountry, state.filterRobotType, next);
     });
   });
 }
@@ -294,6 +339,7 @@ function renderFilterLabel() {
   if (state.filterVendor) parts.push(`ベンダー: ${state.filterVendor}`);
   if (state.filterCountry) parts.push(`国: ${state.filterCountry}`);
   if (state.filterRobotType) parts.push(`ロボットタイプ: ${state.filterRobotType}`);
+  if (state.filterPhase) parts.push(`フェーズ: ${state.filterPhase}`);
   els.filterLabel.textContent = parts.join(" ／ ");
   els.clearFilterBtn.hidden = parts.length === 0;
 }
@@ -309,6 +355,7 @@ function renderCaseList() {
       const imgStyle = c.image_url ? `style="background-image:url('${escapeAttr(c.image_url)}')"` : "";
       const imgFallback = c.image_url ? "" : "画像なし";
       const tags = [
+        ...(c.phases || []).map((t) => `<span class="tag-chip ${phaseClass(t)}">${escapeHtml(t)}</span>`),
         ...c.industries.map((t) => `<span class="tag-chip">${escapeHtml(t)}</span>`),
         ...c.useCases.map((t) => `<span class="tag-chip usecase">${escapeHtml(t)}</span>`),
         ...(c.vendors || []).map((t) => `<span class="tag-chip vendor">${escapeHtml(t)}</span>`),
@@ -342,16 +389,18 @@ function renderCaseList() {
   });
 }
 
-function setFilter(industry, usecase, vendor, country, robotType) {
+function setFilter(industry, usecase, vendor, country, robotType, phase) {
   state.filterIndustry = industry;
   state.filterUsecase = usecase;
   state.filterVendor = vendor || null;
   state.filterCountry = country || null;
   state.filterRobotType = robotType || null;
+  state.filterPhase = phase || null;
   renderMatrix();
   renderVendorChips();
   renderCountryChips();
   renderRobotTypeChips();
+  renderPhaseChips();
   renderFilterLabel();
   applyCaseFilter();
   renderCaseList();
@@ -364,6 +413,7 @@ function filterByTagOnly(type, value) {
   else if (type === "usecase") setFilter(null, value, null, null);
   else if (type === "vendor") setFilter(null, null, value, null);
   else if (type === "country") setFilter(null, null, null, value);
+  else if (type === "phase") setFilter(null, null, null, null, null, value);
 }
 
 function openModal(id) {
@@ -373,6 +423,7 @@ function openModal(id) {
   els.modalImageWrap.style.backgroundImage = c.image_url ? `url('${c.image_url}')` : "none";
   els.modalImageWrap.style.display = c.image_url ? "block" : "none";
   els.modalTags.innerHTML = [
+    ...(c.phases || []).map((t) => `<button type="button" class="tag-chip ${phaseClass(t)}" data-tag-type="phase" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
     ...c.industries.map((t) => `<button type="button" class="tag-chip" data-tag-type="industry" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
     ...c.useCases.map((t) => `<button type="button" class="tag-chip usecase" data-tag-type="usecase" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
     ...(c.vendors || []).map((t) => `<button type="button" class="tag-chip vendor" data-tag-type="vendor" data-tag-value="${escapeAttr(t)}">${escapeHtml(t)}</button>`),
@@ -421,10 +472,12 @@ async function init() {
   computeVendorCounts();
   computeCountryCounts();
   computeRobotTypeCounts();
+  computePhaseCounts();
   renderMatrix();
   renderVendorChips();
   renderCountryChips();
   renderRobotTypeChips();
+  renderPhaseChips();
   renderFilterLabel();
   applyCaseFilter();
   renderCaseList();

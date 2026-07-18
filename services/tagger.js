@@ -1,7 +1,7 @@
 // キーワードマッチングによる自動タグ付け。
 // タイトル・要約・企業名などのテキストを業種/ユースケースのキーワード辞書と照合する。
 
-const { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES, ROBOT_TYPES } = require("./taxonomy");
+const { INDUSTRIES, USE_CASES, VENDORS, COUNTRIES, ROBOT_TYPES, PHASES } = require("./taxonomy");
 
 function normalize(text) {
   return (text || "").toLowerCase();
@@ -38,7 +38,12 @@ function tagCandidate(candidate) {
   // ロボットタイプはタイトル・要約から自動検出
   const robotTypes = matchAgainst(baseText, ROBOT_TYPES);
 
-  return { industries, useCases, vendors, countries, robotTypes };
+  // フェーズ（本番稼働／実証実験／不明）は本文からの自動判定はせず、
+  // 収集時に記事を確認して設定したphaseHintsとのみ照合する。未設定時は「フェーズ不明」を既定値とする。
+  const phases = matchAgainst((candidate.phaseHints || []).join(" \n "), PHASES);
+  if (phases.length === 0) phases.push("フェーズ不明");
+
+  return { industries, useCases, vendors, countries, robotTypes, phases };
 }
 
 module.exports = { tagCandidate, matchAgainst, normalize };

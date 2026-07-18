@@ -30,6 +30,12 @@ CREATE TABLE IF NOT EXISTS robot_types (
   sort_order INTEGER NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS phases (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT UNIQUE NOT NULL,
+  sort_order INTEGER NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS cases (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT NOT NULL,
@@ -74,6 +80,12 @@ CREATE TABLE IF NOT EXISTS case_robot_types (
   PRIMARY KEY (case_id, robot_type_id)
 );
 
+CREATE TABLE IF NOT EXISTS case_phases (
+  case_id INTEGER NOT NULL REFERENCES cases(id) ON DELETE CASCADE,
+  phase_id INTEGER NOT NULL REFERENCES phases(id) ON DELETE CASCADE,
+  PRIMARY KEY (case_id, phase_id)
+);
+
 CREATE INDEX IF NOT EXISTS idx_case_industries_case ON case_industries(case_id);
 CREATE INDEX IF NOT EXISTS idx_case_industries_industry ON case_industries(industry_id);
 CREATE INDEX IF NOT EXISTS idx_case_usecases_case ON case_usecases(case_id);
@@ -84,3 +96,5 @@ CREATE INDEX IF NOT EXISTS idx_case_countries_case ON case_countries(case_id);
 CREATE INDEX IF NOT EXISTS idx_case_countries_country ON case_countries(country_id);
 CREATE INDEX IF NOT EXISTS idx_case_robot_types_case ON case_robot_types(case_id);
 CREATE INDEX IF NOT EXISTS idx_case_robot_types_robot_type ON case_robot_types(robot_type_id);
+CREATE INDEX IF NOT EXISTS idx_case_phases_case ON case_phases(case_id);
+CREATE INDEX IF NOT EXISTS idx_case_phases_phase ON case_phases(phase_id);

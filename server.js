@@ -79,7 +79,7 @@ async function main() {
 
   // 事例一覧（業種／ユースケース／ロボットベンダー／国で絞り込み可能）
   app.get("/api/cases", (req, res) => {
-    const { industry, usecase, vendor, country } = req.query;
+    const { industry, usecase, vendor, country, phase } = req.query;
 
     let sql = `SELECT DISTINCT c.id, c.title, c.url, c.published_date, c.source_name,
                       c.official_score, c.company, c.image_url
@@ -106,6 +106,11 @@ async function main() {
       sql += ` JOIN case_countries cc ON cc.case_id = c.id JOIN countries co ON co.id = cc.country_id`;
       conditions.push("co.name = ?");
       params.push(country);
+    }
+    if (phase) {
+      sql += ` JOIN case_phases cp ON cp.case_id = c.id JOIN phases p ON p.id = cp.phase_id`;
+      conditions.push("p.name = ?");
+      params.push(phase);
     }
     if (conditions.length) sql += " WHERE " + conditions.join(" AND ");
     sql += " ORDER BY c.published_date DESC, c.id DESC";
@@ -171,7 +176,13 @@ function attachTagNames(db, c) {
       [c.id]
     )
     .map((r) => r.name);
-  return { ...c, industries, useCases, vendors, countries };
+  const phases = db
+    .all(
+      `SELECT p.name FROM case_phases cp JOIN phases p ON p.id = cp.phase_id WHERE cp.case_id = ?`,
+      [c.id]
+    )
+    .map((r) => r.name);
+  return { ...c, industries, useCases, vendors, countries, phases };
 }
 
 main().catch((err) => {

@@ -29,9 +29,16 @@ description: physical-ai-trackerに新しいフィジカルAI事例を1件以上
   "industryHints": ["製造業"],
   "useCaseHints": ["ピッキング・搬送"],
   "vendorHints": ["Agility Robotics"],
-  "countryHints": ["カナダ"]
+  "countryHints": ["カナダ"],
+  "phaseHints": ["本番稼働フェーズ"]
 }
 ```
+
+**phaseHintsの判定基準**: 記事本文を読み、実際に「本番稼働（実運用）」なのか「実証実験（パイロット・トライアル・PoC）」なのかを確認して、必ずどちらか1つだけを配列に入れる（`vendorHints`等と同じく本文全体からの自動検出はしない）。
+
+- `本番稼働フェーズ`: 「本格稼働」「商用運用」「実運用」など、実際に継続的な業務で使われていると明言されている、または稼働期間・処理件数・削減効果など運用実績の数値が示されている場合。
+- `実証実験フェーズ`: 「実証実験」「パイロット」「試験導入」「PoC」「検証段階」「試作機」など、実験・試行段階であることが明言されている場合。
+- 判定できない場合（発表・契約締結・将来計画のみで稼働状況が本文に書かれていない等）は `["フェーズ不明"]` とする。無理に本番稼働/実証実験のどちらかに寄せない。
 
 **imageUrlの取得方法**: 記事ページをそのまま読み込むツール（WebFetch等）はLLM要約を介するため、`og:image`/`twitter:image`のメタタグを見落とすことがある（特にNikkei等の会員制・JS描画サイト）。`null`と判断する前に、必ず以下のように生HTMLを直接取得してメタタグを確認すること:
 
@@ -45,6 +52,7 @@ curl -s -A "Mozilla/5.0" "<記事URL>" | grep -o '<meta[^>]*og:image[^>]*>\|<met
 
 - **industryHints / useCaseHints**: title・summary・company本文と合わせてキーワード照合される。ヒントは自由記述でよいが、`services/taxonomy.js` の `INDUSTRIES` / `USE_CASES` のkeywords配列に一致する語を含めると確実にタグが付く。
 - **vendorHints / countryHints**: 本文全体からは照合されず、ここに入れた値だけが `VENDORS` / `COUNTRIES` のkeywordsと照合される（導入企業名との衝突を避けるため）。**`services/taxonomy.js` に存在するベンダー名・国名と一致する語を入れること。** 新しいベンダー・国が登場した場合は、先に `services/taxonomy.js` の `VENDORS` / `COUNTRIES` 配列にエントリを追記してからcandidateを追加する。
+- **phaseHints**: vendorHints/countryHintsと同様、本文全体からは照合されず`phaseHints`の値だけが`PHASES`（`本番稼働フェーズ` / `実証実験フェーズ` / `フェーズ不明`）と照合される。省略した場合は自動的に`フェーズ不明`になる（`services/tagger.js`のデフォルト挙動）。判定基準は上記参照。
 - **ロボットタイプ**: hintsは不要。title・summaryから `ROBOT_TYPES`（ヒューマノイド／ロボットアーム／四足歩行ロボット／AMR・AGV／自動運転車／ドローン）のキーワードで自動検出される。
 - 重複判定は `services/dedupe.js` がタイトルの類似度（バイグラムJaccard）またはURL一致で行い、`officialScore`（公式サイト・プレスリリース=3、主要メディア=2、その他=1）がより高い情報だけを残す。同一事例を複数ソースから追加しても問題ない。
 
