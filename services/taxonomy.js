@@ -156,7 +156,7 @@ const ROBOT_TYPES = [
   { name: "ロボットアーム", keywords: ["robot arm", "ロボットアーム", "manipulator", "collaborative arm", "cobot arm", "arm robot", "双腕", "ur10", "yamaha", "universal robot"] },
   { name: "四足歩行ロボット", keywords: ["quadruped", "四足", "4足", "quadlegged", "go2", "spot", "atlas", "x30"] },
   { name: "AMR/AGV", keywords: ["amr", "agv", "autonomous mobile robot", "autonomous guided vehicle", "自律走行ロボット", "mobile robot", "mir", "eve", "proteus", "autonomous vehicle"] },
-  { name: "自動運転車", keywords: ["autonomous truck", "robotaxi", "ロボタクシー", "self-driving", "automated haul truck", "autonomous haul", "zodiac", "waymo", "pony.ai", "zoox", "kodiak"] },
+  { name: "自動運転車", keywords: ["autonomous truck", "robotaxi", "ロボタクシー", "self-driving", "automated haul truck", "autonomous haul", "自律運搬トラック", "自律ダンプトラック", "自律走行トラック", "zodiac", "waymo", "pony.ai", "zoox", "kodiak"] },
   { name: "ドローン", keywords: ["drone", "ドローン", "uav", "quadcopter", "aerial robot", "unmanned aerial"] },
 ];
 
