@@ -2798,5 +2798,29 @@
     "phaseHints": [
       "フェーズ不明"
     ]
+  },
+  {
+    "title": "コスモ石油、堺製油所で四足歩行ロボットを活用した設備点検のPoCを開始",
+    "url": "https://www.cosmo-energy.co.jp/ja/information/press/2026/260709-01.html",
+    "publishedDate": "2026-07-09",
+    "sourceName": "コスモエネルギーホールディングス（プレスリリース）",
+    "company": "コスモ石油",
+    "summary": "コスモ石油は堺製油所（大阪府堺市）の排水処理設備エリアで、米Boston Dynamics製の四足歩行ロボット「Spot」を用いた設備点検のPoC（概念実証）を、協力会社の東北エンタープライズとともに2026年5月24〜28日の期間で実施した。各種センサーによる設備の状態確認を行い、現場環境での実現性確認とロボット活用に向けた課題整理を目的とした試験検証で、記事は明確に「PoCを開始」と位置付けている。設備保全の高度化に向け、今後の現場への適用可能性を検証していく。",
+    "imageUrl": "https://www.cosmo-energy.co.jp/content/dam/corp/jp/ja/press/2026/260709-01/image01.jpg",
+    "industryHints": [
+      "エネルギー"
+    ],
+    "useCaseHints": [
+      "点検・保守"
+    ],
+    "vendorHints": [
+      "Boston Dynamics"
+    ],
+    "countryHints": [
+      "日本"
+    ],
+    "phaseHints": [
+      "実証実験フェーズ"
+    ]
   }
 ]
