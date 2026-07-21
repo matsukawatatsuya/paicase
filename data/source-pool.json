@@ -2822,5 +2822,29 @@
     "phaseHints": [
       "実証実験フェーズ"
     ]
+  },
+  {
+    "title": "中国郵政、広州の物流ハブでRobotEra製ヒューマノイド「M7」による小包仕分けを本格稼働",
+    "url": "https://www.eweek.com/news/apac-china-post-robot-sorters/",
+    "publishedDate": "2026-05-31",
+    "sourceName": "eWeek",
+    "company": "中国郵政（China Post）",
+    "summary": "中国郵政（China Post）は広州市江高の物流ハブで、北京拠点のスタートアップRobotEra製ヒューマノイドロボット「M7」を小包の仕分け作業に投入した。M7は歩行機能を持たない固定式の上半身ロボットで、7自由度アーム・12自由度の5本指ハンドと360度視野の3D LiDARを搭載し、コンベア上を流れる荷物をベルト脇の定点で処理する。複数台合計で1時間あたり1,200個の処理能力を持ち、1日平均650万件・ピーク時1,000万件超を扱う同拠点の自動化システムの一部として、ロボットアームや無人フォークリフトとともに本番稼働している。RobotEraは中国国内10拠点以上の物流センターにもM7を展開済み。",
+    "imageUrl": "https://cdn.eweek.com/Untitled%20design%20(28).png",
+    "industryHints": [
+      "物流・倉庫"
+    ],
+    "useCaseHints": [
+      "ピッキング・搬送"
+    ],
+    "vendorHints": [
+      "RobotEra"
+    ],
+    "countryHints": [
+      "中国"
+    ],
+    "phaseHints": [
+      "本番稼働フェーズ"
+    ]
   }
 ]

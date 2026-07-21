@@ -119,6 +119,7 @@ const VENDORS = [
   { name: "Wandercraft", keywords: ["Wandercraft", "Calvin"] },
   { name: "Lumos Robotics", keywords: ["Lumos Robotics"] },
   { name: "Persona AI", keywords: ["Persona AI"] },
+  { name: "RobotEra", keywords: ["RobotEra", "Robotera", "Xingdong M7", "M7"] },
 ];
 
 // 事例が実際に導入・運用されている国。会社の国籍ではなく、記事内で確認できた導入先の国。
